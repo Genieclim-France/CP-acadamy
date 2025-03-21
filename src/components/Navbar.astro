@@ -1,4 +1,4 @@
-<nav class="absolute top-0 left-0 w-full">
+<nav class="absolute top-0 left-0 w-full z-10">
     <input id="mon-drawer" type="checkbox" class="top-drawer-toggle hidden" />
     <div class="flex flex-col">
       <!-- Navbar -->
@@ -34,11 +34,11 @@
         <div class="top-drawer-overlay"></div>
         <div class="top-drawer-content bg-white bg-cover bg-center w-full h-screen p-8">
           <header class="flex flex-row-reverse">
-            <label for="mon-drawer" class="btn btn-square btn-ghost gradient-border-white gradient-border">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-black" fill="none" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </label>
+            <label for="mon-drawer" class="btn btn-square btn-ghost gradient-border-white gradient-border group">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-black transition-colors group-hover:stroke-white" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </label>
           </header>
           <div class="flex flex-col items-center justify-center h-full">
             <ul class="menu menu-vertical gap-8 text-2xl ">
@@ -80,8 +80,8 @@
   inset: 0;
   border-top-right-radius: 0.4rem;
   border-bottom-left-radius: 0.4rem;
-  /* Ceci crée un "trou" transparent au milieu qui laisse voir l'arrière-plan de la page */
-  background-color: var(--background-color, #1C1C1C);
+  background-color: var(--background-color, #20201F);
+  transition: background-color 0.3s ease;
 }
 
 .gradient-border-white::after {
@@ -91,12 +91,11 @@
   inset: 0;
   border-top-right-radius: 0.4rem;
   border-bottom-left-radius: 0.4rem;
-  /* Ceci crée un "trou" transparent au milieu qui laisse voir l'arrière-plan de la page */
   background-color: var(--background-color, white);
+  transition: background-color 0.3s ease;
 }
 
 .gradient-border:hover::after {
-  /* Quand on survole, on retire le "trou" central */
   background-color: transparent;
 }
 
