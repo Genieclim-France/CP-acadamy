@@ -7,8 +7,29 @@
   dark-theme: "light";
 }
 
+:root {
+  --primary-color: #1e1e1e;
+  --secondary-color: #f0f0f0;
+}
+
+@theme {
+  --primary: var(--primary-color);
+  --secondary: var(--secondary-color);
+  --gradient-start: #4158d0;
+  --gradient-middle: #c751c0;
+  --gradient-end: #ffcb70;
+}
+
+.font-bestley {
+  font-family: "Besley", serif;
+}
+
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
 body {
-  background-color: #1e1e1e;
+  background-color: var(--primary-color);
   background-image: radial-gradient(
       circle at center,
       rgba(255, 255, 255, 0) 0%,

@@ -1,0 +1,125 @@
+<div class="accordion-container px-4 py-12 max-w-3xl mx-auto">
+  <h2 class="text-2xl font-bold font-bestley mb-8 text-white">
+    Pourquoi choisir <span class="text-nowrap">CP Academy</span> ?
+  </h2>
+
+  <div class="flex flex-col gap-4">
+    <!-- Premier accordéon -->
+    <div class="accordion-item">
+      <button class="accordion-btn w-full" data-accordion="reconnue">
+        <div class="bg-primary border-2 border-[#4158D0] text-white rounded-lg px-6 py-4 flex items-center gap-2 transition-colors duration-300">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+            <path d="M8 12l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span>Reconnue</span>
+          <svg class="w-4 h-4 ml-auto transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M19 9l-7 7-7-7" stroke-width="2"/>
+          </svg>
+        </div>
+      </button>
+      <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300">
+        <div class="p-6 bg-[#4158D0]/20 mt-2 rounded-lg">
+          <p class="text-white">CP Academy est une référence dans le domaine de la <span class="font-bold">formation certifiée</span>. Nos programmes sont conçus pour répondre aux standards professionnels les plus exigeants.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Deuxième accordéon -->
+    <div class="accordion-item">
+        <button class="accordion-btn w-full" data-accordion="professionnelle">
+            <div class="bg-primary border-2 border-[#C751C0] text-white rounded-lg px-6 py-4 flex items-center gap-2 transition-colors duration-300">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+            <path d="M8 12l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span>Professionnelle</span>
+          <svg class="w-4 h-4 ml-auto transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M19 9l-7 7-7-7" stroke-width="2"/>
+          </svg>
+        </div>
+      </button>
+      <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300">
+        <div class="p-6 bg-[#C751C0]/20 mt-2 rounded-lg">
+          <p class="text-white">Nos formations sont conçues et dispensées par des experts du métier. Grâce à une pédagogie immersive et des mises en situation réelles, vous développez des compétences concrètes et opérationnelles.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Troisième accordéon -->
+    <div class="accordion-item">
+      <button class="accordion-btn w-full" data-accordion="personnalisee">
+        <div class="bg-primary border-2 border-[#FFCB70] text-white rounded-lg px-6 py-4 flex items-center gap-2 transition-colors duration-300">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+            <path d="M8 12l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span>Personnalisée</span>
+          <svg class="w-4 h-4 ml-auto transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M19 9l-7 7-7-7" stroke-width="2"/>
+          </svg>
+        </div>
+      </button>
+      <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300">
+        <div class="p-6 bg-[#FFCB70]/20 mt-2 rounded-lg">
+          <p class="text-white">Chaque apprenant est unique, et nos formations s’adaptent à vos besoins. Modules sur-mesure, accompagnement dédié et flexibilité : CP Academy vous donne les clés pour réussir à votre rythme.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .accordion-btn {
+    transition: all 0.3s ease;
+  }
+
+  .accordion-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .accordion-item.active .accordion-content {
+    max-height:fit-content;
+  }
+
+  .accordion-item.active .accordion-btn svg:last-child {
+    transform: rotate(180deg);
+  }
+
+  /* Nouveau : change le bg quand l'accordéon est actif */
+  .accordion-item.active .accordion-btn div {
+    background-color: #4158D0;
+    border-color: #4158D0;
+  }
+
+  .accordion-item:nth-child(2).active .accordion-btn div {
+    background-color: #C751C0;
+    border-color: #C751C0;
+  }
+
+  .accordion-item:nth-child(3).active .accordion-btn div {
+    background-color: #FFCB70;
+    border-color: #FFCB70;
+    color: var(--primary);
+  }
+</style>
+
+<script>
+  const accordionBtns = document.querySelectorAll('.accordion-btn');
+  
+  accordionBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.accordion-item');
+      
+      // Fermer tous les autres accordéons
+      document.querySelectorAll('.accordion-item').forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.classList.remove('active');
+        }
+      });
+      
+      // Basculer l'état de l'accordéon cliqué
+      item?.classList.toggle('active');
+    });
+  });
+</script>

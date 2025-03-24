@@ -1,0 +1,156 @@
+---
+// Import du CSS de Swiper
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+---
+
+<div class="carousel-container">
+  <!-- Swiper pour les backgrounds avec effet fade -->
+  <div class="swiper bg-swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide bg-coiffure"></div>
+      <div class="swiper-slide bg-esthetique"></div>
+    </div>
+  </div>
+
+  <!-- Swiper pour le contenu avec effet slide -->
+  <div class="swiper content-swiper">
+    <h2 class="fixed-title text-center text-2xl font-bold font-bestley text-white z-10 px-10">
+        Des formations diverses et variées
+    </h2>
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="content px-10 pt-14">
+          <h3 class="text-white text-center text-xl font-bold font-bestley pb-3">Coiffure</h3>
+          <p class="text-white text-center text-sm">Techniques de coupe, colorimétrie, coiffures tendances… Nos programmes sur-mesure s'adaptent à tous les niveaux, de débutant à professionnel.</p>
+          <button class="btn btn-primary mt-6 rounded-tr-lg rounded-bl-lg px-8 bg-white text-black border-none hover:bg-black hover:text-white">Découvrir</button>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="content px-10 pt-14">
+          <h3 class="text-white text-center text-xl font-bold font-bestley pb-3">Esthétique</h3>
+          <p class="text-white text-center text-sm">Perfectionnez votre savoir-faire avec nos formations certifiées en esthétique. Soins du visage, maquillage professionnel, manucure… Nos programmes sur-mesure vous forment aux techniques essentielles pour réussir dans l'univers de la beauté.</p>
+          <button class="btn btn-primary mt-6 rounded-tr-lg rounded-bl-lg px-8 bg-white text-black border-none hover:bg-black hover:text-white">Découvrir</button>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</div>
+
+<style>
+  .carousel-container {
+    position: relative;
+  }
+
+  .bg-swiper, .content-swiper {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .bg-swiper {
+    z-index: 1;
+  }
+
+  .content-swiper {
+    z-index: 2;
+    background: transparent;
+  }
+
+  .content-swiper .swiper-slide {
+    background: transparent;
+  }
+
+  .swiper-button-next, .swiper-button-prev {
+    color: white;
+    transform: scale(0.7);
+  }
+
+  .swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 1.5rem;
+  }
+
+  .carousel-container {
+    height: 80%;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: opacity 0.5s ease;
+  }
+
+  /* Style pour l'effet de fondu */
+  .swiper-slide:not(.swiper-slide-active) {
+    opacity: 0;
+  }
+
+  .bg-coiffure {
+    background-image: url('/src/assets/carrousel/slider-1.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .bg-esthetique {
+    background-image: url('/src/assets/carrousel/slider-2.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .fixed-title {
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, Pagination, EffectFade } from 'swiper/modules';
+
+  // Swiper pour les backgrounds
+  const bgSwiper = new Swiper('.bg-swiper', {
+    modules: [EffectFade],
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true
+    },
+    allowTouchMove: false, // Désactive le swipe sur les backgrounds
+  });
+
+  // Swiper pour le contenu
+  const contentSwiper = new Swiper('.content-swiper', {
+    modules: [Navigation, Pagination],
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    // Synchronise le background avec le contenu
+    on: {
+      slideChange: function (swiper) {
+        bgSwiper.slideTo(swiper.activeIndex);
+      }
+    }
+  });
+</script>
