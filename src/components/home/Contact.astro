@@ -1,0 +1,70 @@
+<section class="md:flex md:flex-col md:items-center md:justify-center">
+    <header class="flex flex-col items-center justify-center">
+        <img src="/src/assets/logo.svg" alt="Logo CP Academy" class="w-40 h-40 md:hidden">
+        <video src="/src/assets/logo-video.webm" autoplay muted class="w-[60%] md:block hidden"></video>
+        <h3 class="text-lg font-bold font-bestley mb-4 text-white">
+            CP Academy
+        </h3>
+        <p class="text-white text-sm font-light">20 rue Jean Mermoz, 33185 LE HAILLAN</p>
+        <p class="text-white text-sm font-light">07 69 76 26 36</p>
+        <p class="text-white text-sm font-light">contact@cpacademy.fr</p>
+    </header>
+    <form class="form-gradient flex flex-col justify-center py-8 px-6 mx-6 gap-4 mt-10 md:w-1/2">
+        <h4 class="text-white text-lg font-bold font-bestley mb-4">Formulaire de contact</h4>
+        <input type="text" placeholder="Nom" class="w-full input">
+        <input type="text" placeholder="Prénom" class="w-full input">
+        <input type="tel" placeholder="Téléphone" class="w-full input">
+        <input type="email" placeholder="Email" class="w-full input">
+        <textarea placeholder="Message" class="w-full h-32 textarea"></textarea>
+        <div class="flex justify-end">
+            <button class="btn rounded-tr-xl rounded-bl-xl bg-none border-white text-white mt-4 hover:bg-white hover:text-black w-fit px-10">Envoyer</button>
+        </div>
+    </form>
+</section>
+
+<style>
+    .form-gradient {
+        position: relative;
+        background: transparent;
+        border-radius: 0.5rem;
+    }
+
+    .form-gradient::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 0.5rem;
+        padding: 1px;
+        background: linear-gradient(
+            125deg,
+            rgba(65, 88, 208, 1) 0%,
+            rgba(199, 81, 192, 1) 50%,
+            rgba(255, 203, 112, 1) 100%
+        );
+        -webkit-mask: 
+            linear-gradient(#fff 0 0) content-box, 
+            linear-gradient(#fff 0 0);
+        mask: 
+            linear-gradient(#fff 0 0) content-box, 
+            linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    input, textarea {
+        color: var(--secondary);
+        border: 1px solid var(--secondary);
+        background-color: transparent;
+        font-size: 0.9rem;
+        font-weight: 500;
+        font-family: 'Bestley', sans-serif;
+        padding: 10px;
+        border-top-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+</style>

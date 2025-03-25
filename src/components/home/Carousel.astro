@@ -16,21 +16,21 @@ import 'swiper/css/pagination';
 
   <!-- Swiper pour le contenu avec effet slide -->
   <div class="swiper content-swiper">
-    <h2 class="fixed-title text-center text-2xl font-bold font-bestley text-white z-10 px-10">
+    <h2 class="fixed-title text-center text-2xl font-bold font-bestley text-white z-10 px-10 md:text-4xl md:pt-10">
         Des formations diverses et variées
     </h2>
     <div class="swiper-wrapper">
       <div class="swiper-slide">
         <div class="content px-10 pt-14">
-          <h3 class="text-white text-center text-xl font-bold font-bestley pb-3">Coiffure</h3>
-          <p class="text-white text-center text-sm">Techniques de coupe, colorimétrie, coiffures tendances… Nos programmes sur-mesure s'adaptent à tous les niveaux, de débutant à professionnel.</p>
+          <h3 class="text-white text-center text-xl font-bold font-bestley pb-3 md:text-2xl">Coiffure</h3>
+          <p class="text-white text-center text-sm md:text-base md:px-80">Techniques de coupe, colorimétrie, coiffures tendances… Nos programmes sur-mesure s'adaptent à tous les niveaux, de débutant à professionnel.</p>
           <button class="btn btn-primary mt-6 rounded-tr-lg rounded-bl-lg px-8 bg-white text-black border-none hover:bg-black hover:text-white">Découvrir</button>
         </div>
       </div>
       <div class="swiper-slide">
         <div class="content px-10 pt-14">
-          <h3 class="text-white text-center text-xl font-bold font-bestley pb-3">Esthétique</h3>
-          <p class="text-white text-center text-sm">Perfectionnez votre savoir-faire avec nos formations certifiées en esthétique. Soins du visage, maquillage professionnel, manucure… Nos programmes sur-mesure vous forment aux techniques essentielles pour réussir dans l'univers de la beauté.</p>
+          <h3 class="text-white text-center text-xl font-bold font-bestley pb-3 md:text-2xl">Esthétique</h3>
+          <p class="text-white text-center text-sm md:text-base md:px-80">Perfectionnez votre savoir-faire avec nos formations certifiées en esthétique. Soins du visage, maquillage professionnel, manucure… Nos programmes sur-mesure vous forment aux techniques essentielles pour réussir dans l'univers de la beauté.</p>
           <button class="btn btn-primary mt-6 rounded-tr-lg rounded-bl-lg px-8 bg-white text-black border-none hover:bg-black hover:text-white">Découvrir</button>
         </div>
       </div>
@@ -73,12 +73,34 @@ import 'swiper/css/pagination';
     font-size: 1.5rem;
   }
 
+  @media (min-width: 768px) {
+    .swiper-button-prev {
+      left: 18rem;
+      top: 13rem;
+    }
+
+    .swiper-button-next {
+      right: 18rem;
+      top: 13rem;
+    }
+
+    .swiper-button-next:hover, .swiper-button-prev:hover {
+      transform: scale(1);
+      transition: all 0.3s ease;
+    }
+  }
   .carousel-container {
     height: 80%;
     padding: 2rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .carousel-container {
+      height: 45%;
+    }
   }
 
   .swiper {
@@ -92,12 +114,6 @@ import 'swiper/css/pagination';
     justify-content: center;
     align-items: center;
     color: white;
-    transition: opacity 0.5s ease;
-  }
-
-  /* Style pour l'effet de fondu */
-  .swiper-slide:not(.swiper-slide-active) {
-    opacity: 0;
   }
 
   .bg-coiffure {
@@ -110,6 +126,19 @@ import 'swiper/css/pagination';
     background-image: url('/src/assets/carrousel/slider-2.png');
     background-size: cover;
     background-position: center;
+  }
+
+  /* Modification de l'effet de fondu */
+  .swiper-slide-active {
+    opacity: 1;
+  }
+
+  .swiper-slide:not(.swiper-slide-active) {
+    opacity: 0;
+  }
+
+  .bg-swiper .swiper-wrapper {
+    background-color: #121212; /* Fond noir derrière les slides */
   }
 
   .fixed-title {
@@ -133,7 +162,8 @@ import 'swiper/css/pagination';
     fadeEffect: {
       crossFade: true
     },
-    allowTouchMove: false, // Désactive le swipe sur les backgrounds
+    allowTouchMove: false,
+    loop: true,
   });
 
   // Swiper pour le contenu
@@ -146,10 +176,11 @@ import 'swiper/css/pagination';
     pagination: {
       el: '.swiper-pagination',
     },
+    loop: true,
     // Synchronise le background avec le contenu
     on: {
       slideChange: function (swiper) {
-        bgSwiper.slideTo(swiper.activeIndex);
+        bgSwiper.slideToLoop(swiper.realIndex);
       }
     }
   });

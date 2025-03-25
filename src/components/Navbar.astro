@@ -2,7 +2,7 @@
     <input id="mon-drawer" type="checkbox" class="top-drawer-toggle hidden" />
     <div class="flex flex-col">
       <!-- Navbar -->
-      <div class="navbar bg-transparent w-full flex flex-row-reverse pt-8 pr-8">
+      <div class="navbar bg-transparent w-full flex flex-row-reverse md:flex-row md:px-14 pt-8 pr-8">
         <div class="flex-none lg:hidden">
           <label for="mon-drawer" aria-label="open sidebar" class="btn btn-square btn-ghost gradient-border">
             <svg
@@ -18,13 +18,21 @@
             </svg>
           </label>
         </div>
-        <div class="mx-2 px-2 flex-1 hidden lg:block"><img src="/src/assets/logo.svg" alt="CP Academy" class="w-30 h-30"></div>
+        <div class="mx-2 px-2 flex-1 hidden  lg:block"><img src="/src/assets/logo.svg" alt="CP Academy" class="w-30 h-30"></div>
         <div class="hidden flex-none lg:block">
-          <ul class="menu menu-horizontal">
+          <ul class="menu menu-horizontal gap-8 text-white font-bold">
             <!-- Navbar menu content here -->
             <li><a>Accueil</a></li>
-            <li><a>Cours</a></li>
-            <li><a>Contact</a></li>
+            <li class="dropdown-menu hover:bg-black/20">
+              <details>
+                <summary>Nos formations</summary>
+                <ul class="rounded-t-none px-2 pb-2 pt-0 bg-black w-full rounded-b-xl">
+                  <li><a>Formation 1</a></li>
+                  <li><a>Formation 2</a></li>
+                </ul>
+              </details>
+            </li>
+            <li><a>Groupe CP</a></li>
           </ul>
         </div>
       </div>
@@ -43,8 +51,8 @@
           <div class="flex flex-col items-center justify-center h-full">
             <ul class="menu menu-vertical gap-8 text-2xl ">
               <li><a>Accueil</a></li>
-              <li><a>Cours</a></li>
-              <li><a>Contact</a></li>
+              <li><a>Nos formations</a></li>
+              <li><a>Groupe CP</a></li>
             </ul>
           </div>
         </div>
@@ -56,6 +64,18 @@
 
 
   <style>
+
+  li > a:hover {
+      background: linear-gradient(
+            90deg,
+            rgba(65, 88, 208, 1) 0%,
+            rgba(199, 81, 192, 1) 50%,
+            rgba(255, 203, 112, 1) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+  }
 .gradient-border {
   position: relative;
   z-index: 0;
@@ -143,5 +163,81 @@
 .top-drawer-toggle:checked ~ div .top-drawer-overlay {
   opacity: 1;
   pointer-events: auto;
+}
+
+.dropdown-menu details[open] {
+  position: relative;
+  background-color: transparent;
+  border-radius: 0.5rem;
+}
+
+.dropdown-menu details[open]::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 0.5rem;
+  background: linear-gradient(
+    90deg,
+    rgba(65, 88, 208, 1) 0%,
+    rgba(199, 81, 192, 1) 50%,
+    rgba(255, 203, 112, 1) 100%
+  );
+  z-index: -1;
+}
+
+.dropdown-menu details[open]::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 0.4rem;
+  background-color: #20201F;
+  z-index: -1;
+}
+
+.dropdown-menu details[open] summary {
+  background-color: transparent;
+}
+
+.dropdown-menu details[open] ul {
+  background-color: #121212;
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.dropdown-menu details[open] summary:hover,
+.dropdown-menu details[open] ul li a:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(65, 88, 208, 1) 0%,
+    rgba(199, 81, 192, 1) 50%,
+    rgba(255, 203, 112, 1) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-color: transparent;
+}
+
+.dropdown-menu details[open] ul li a:hover {
+  background-color: transparent;
+}
+
+.dropdown-menu summary:hover,
+.dropdown-menu ul li a:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(65, 88, 208, 1) 0%,
+    rgba(199, 81, 192, 1) 50%,
+    rgba(255, 203, 112, 1) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-color: transparent;
+}
+
+.dropdown-menu ul li a:hover {
+  background-color: transparent;
 }
   </style>

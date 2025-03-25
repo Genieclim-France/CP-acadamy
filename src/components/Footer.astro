@@ -1,0 +1,43 @@
+<footer class="footer-gradient flex flex-col items-center justify-center py-10 mt-10 bg-[#121212]">
+    <section class="flex justify-center items-center gap-4">
+        <a href="https://www.instagram.com/cpacademy/" target="_blank">
+            <img src="/src/assets/insta.svg" alt="Instagram" class="w-10 h-10">
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=100088929648926" target="_blank">
+            <img src="/src/assets/facebook.svg" alt="Facebook" class="w-10 h-10">
+        </a>
+    </section>
+    <section class="flex justify-center items-center gap-2 pt-4">
+        <a href="/mentions-legales" class="text-white text-sm font-light">Mentions légales</a>
+        <a href="/politique-de-confidentialite" class="text-white text-sm font-light">Politique de confidentialité</a>
+    </section>
+    <p class="text-white text-sm font-light pt-1">© <span id="currentYear"></span> CP Academy - Tous droits réservés.</p>
+</footer>
+
+<style>
+    .footer-gradient {
+        position: relative;
+    }
+
+    .footer-gradient::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+            90deg,
+            rgba(65, 88, 208, 1) 0%,
+            rgba(199, 81, 192, 1) 50%,
+            rgba(255, 203, 112, 1) 100%
+        );
+    }
+</style>
+
+<script>
+    const yearElement = document.getElementById('currentYear');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear().toString();
+    }
+</script>
