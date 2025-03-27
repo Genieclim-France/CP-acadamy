@@ -18,21 +18,31 @@
             </svg>
           </label>
         </div>
-        <div class="mx-2 px-2 flex-1 hidden  lg:block"><img src="/src/assets/logo.svg" alt="CP Academy" class="w-30 h-30"></div>
+        
+        <!-- Logo pour desktop (visible sur toutes les pages) -->
+        <a href="/" class="mx-2 px-2 flex-1 hidden lg:block">
+          <img src="/src/assets/logo.svg" alt="CP Academy" class="w-30 h-30">
+        </a>
+        
+        <!-- Logo pour mobile (visible sur toutes les pages sauf home) -->
+        <a href="/" class="mx-2 px-2 flex-1 lg:hidden" id="mobile-logo">
+          <img src="/src/assets/logo.svg" alt="CP Academy" class="w-16 h-16">
+        </a>
+        
         <div class="hidden flex-none lg:block">
           <ul class="menu menu-horizontal gap-8 text-white font-bold">
             <!-- Navbar menu content here -->
-            <li><a>Accueil</a></li>
+            <li><a href="/">Accueil</a></li>
             <li class="dropdown-menu hover:bg-black/20">
               <details>
                 <summary>Nos formations</summary>
                 <ul class="rounded-t-none px-2 pb-2 pt-0 bg-black w-full rounded-b-xl">
-                  <li><a>Formation 1</a></li>
-                  <li><a>Formation 2</a></li>
+                  <li><a>Coiffure</a></li>
+                  <li><a>Esthétique</a></li>
                 </ul>
               </details>
             </li>
-            <li><a>Groupe CP</a></li>
+            <li><a href="/about">Groupe CP</a></li>
           </ul>
         </div>
       </div>
@@ -50,9 +60,9 @@
           </header>
           <div class="flex flex-col items-center justify-center h-full">
             <ul class="menu menu-vertical gap-8 text-2xl ">
-              <li><a>Accueil</a></li>
+              <li><a href="/">Accueil</a></li>
               <li><a>Nos formations</a></li>
-              <li><a>Groupe CP</a></li>
+              <li><a href="/about">Groupe CP</a></li>
             </ul>
           </div>
         </div>
@@ -62,6 +72,16 @@
     </div>
   </nav>
 
+  <script>
+    // Vérifier si on est sur la page d'accueil
+    const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html';
+    const mobileLogo = document.getElementById('mobile-logo');
+    
+    // Cacher le logo mobile si on est sur la page d'accueil
+    if (isHomePage && mobileLogo) {
+      mobileLogo.style.display = 'none';
+    }
+  </script>
 
   <style>
 

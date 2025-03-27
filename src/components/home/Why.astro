@@ -9,8 +9,8 @@
     <div class="flex flex-col md:flex-row md:gap-4 mb-4 md:mb-0">
       <!-- Premier accordéon -->
       <div class="accordion-item md:flex-1 mb-4 md:mb-0">
-        <button class="accordion-btn w-full" data-accordion="reconnue">
-          <div class="bg-primary border-2 border-[#4158D0] text-white rounded-lg px-6 py-4 flex items-center gap-2 transition-colors duration-300">
+        <button class="accordion-btn w-full 2xl:text-xl" data-accordion="reconnue">
+          <div class="bg-primary border-2 border-[#4158D0] text-white px-6 py-4 flex items-center gap-2 transition-colors duration-300">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
               <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
               <path d="M8 12l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -23,7 +23,7 @@
         </button>
         <!-- Contenu 1 (visible en mobile) -->
         <div id="content-reconnue" class="accordion-content-panel hidden md:hidden">
-          <div class="p-6 bg-[#4158D0] mt-2 rounded-lg">
+          <div class="p-6 bg-[#4158D0] mt-2 rounded-bl-lg rounded-tr-lg 2xl:rounded-bl-3xl 2xl:rounded-tr-3xl">
             <p class="text-white">CP Academy est une référence dans le domaine de la <span class="font-bold">formation certifiée</span>. Nos programmes sont conçus pour répondre aux standards professionnels les plus exigeants.</p>
           </div>
         </div>
@@ -31,8 +31,8 @@
 
       <!-- Deuxième accordéon -->
       <div class="accordion-item md:flex-1 mb-4 md:mb-0">
-        <button class="accordion-btn w-full" data-accordion="professionnelle">
-          <div class="bg-primary border-2 border-[#C751C0] text-white rounded-lg px-6 py-4 flex items-center gap-2 transition-colors duration-300">
+        <button class="accordion-btn w-full 2xl:text-xl" data-accordion="professionnelle">
+          <div class="bg-primary border-2 border-[#C751C0] text-white px-6 py-4 flex items-center gap-2 transition-colors duration-300">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
               <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
               <path d="M8 12l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -45,7 +45,7 @@
         </button>
         <!-- Contenu 2 (visible en mobile) -->
         <div id="content-professionnelle" class="accordion-content-panel hidden md:hidden">
-          <div class="p-6 bg-[#C751C0] mt-2 rounded-lg">
+          <div class="p-6 bg-[#C751C0] mt-2 rounded-bl-lg rounded-tr-lg 2xl:rounded-bl-3xl 2xl:rounded-tr-3xl">
             <p class="text-white">Nos formations sont conçues et dispensées par des experts du métier. Grâce à une pédagogie immersive et des mises en situation réelles, vous développez des compétences concrètes et opérationnelles.</p>
           </div>
         </div>
@@ -53,8 +53,8 @@
 
       <!-- Troisième accordéon -->
       <div class="accordion-item md:flex-1 mb-4 md:mb-0">
-        <button class="accordion-btn w-full" data-accordion="personnalisee">
-          <div class="bg-primary border-2 border-[#FFCB70] text-white rounded-lg px-6 py-4 flex items-center gap-2 transition-colors duration-300">
+        <button class="accordion-btn w-full 2xl:text-xl" data-accordion="personnalisee">
+          <div class="bg-primary border-2 border-[#FFCB70] text-white px-6 py-4 flex items-center gap-2 transition-colors duration-300">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
               <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
               <path d="M8 12l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -67,7 +67,7 @@
         </button>
         <!-- Contenu 3 (visible en mobile) -->
         <div id="content-personnalisee" class="accordion-content-panel hidden md:hidden">
-          <div class="p-6 bg-[#FFCB70] mt-2 rounded-lg">
+          <div class="p-6 bg-[#FFCB70] mt-2 rounded-bl-lg rounded-tr-lg 2xl:rounded-bl-3xl 2xl:rounded-tr-3xl">
             <p class="text-primary">Chaque apprenant est unique, et nos formations s'adaptent à vos besoins. Modules sur-mesure, accompagnement dédié et flexibilité : CP Academy vous donne les clés pour réussir à votre rythme.</p>
           </div>
         </div>
@@ -78,20 +78,20 @@
     <div class="accordion-contents hidden md:block">
       <!-- Duplicata des contenus pour desktop -->
       <div id="content-reconnue-desktop" class="accordion-content-panel hidden">
-        <div class="p-6 bg-[#4158D0] mt-2 rounded-lg">
-          <p class="text-white">CP Academy est une référence dans le domaine de la <span class="font-bold">formation certifiée</span>. Nos programmes sont conçus pour répondre aux standards professionnels les plus exigeants.</p>
+        <div class="p-6 bg-[#4158D0] mt-2 2xl:p-8 rounded-bl-lg rounded-tr-lg">
+          <p class="text-white 2xl:text-xl">CP Academy est une référence dans le domaine de la <span class="font-bold">formation certifiée</span>. Nos programmes sont conçus pour répondre aux standards professionnels les plus exigeants.</p>
         </div>
       </div>
 
       <div id="content-professionnelle-desktop" class="accordion-content-panel hidden">
-        <div class="p-6 bg-[#C751C0] mt-2 rounded-lg">
-          <p class="text-white">Nos formations sont conçues et dispensées par des experts du métier. Grâce à une pédagogie immersive et des mises en situation réelles, vous développez des compétences concrètes et opérationnelles.</p>
+        <div class="p-6 bg-[#C751C0] mt-2 2xl:p-8 rounded-bl-lg rounded-tr-lg">
+          <p class="text-white 2xl:text-xl">Nos formations sont conçues et dispensées par des experts du métier. Grâce à une pédagogie immersive et des mises en situation réelles, vous développez des compétences concrètes et opérationnelles.</p>
         </div>
       </div>
 
       <div id="content-personnalisee-desktop" class="accordion-content-panel hidden">
-        <div class="p-6 bg-[#FFCB70] mt-2 rounded-lg">
-          <p class="text-primary">Chaque apprenant est unique, et nos formations s'adaptent à vos besoins. Modules sur-mesure, accompagnement dédié et flexibilité : CP Academy vous donne les clés pour réussir à votre rythme.</p>
+        <div class="p-6 bg-[#FFCB70] mt-2 2xl:p-8 rounded-bl-lg rounded-tr-lg 2xl:rounded-bl-3xl 2xl:rounded-tr-3xl">
+          <p class="text-primary 2xl:text-xl">Chaque apprenant est unique, et nos formations s'adaptent à vos besoins. Modules sur-mesure, accompagnement dédié et flexibilité : CP Academy vous donne les clés pour réussir à votre rythme.</p>
         </div>
       </div>
     </div>
@@ -208,11 +208,52 @@
     });
   });
 
-  // Activer le premier accordéon par défaut
-  document.querySelector('.accordion-item')?.classList.add('active');
-  const defaultContent = isMobile 
-    ? document.getElementById('content-reconnue')
-    : document.getElementById('content-reconnue-desktop');
-  defaultContent?.classList.remove('hidden');
-  defaultContent?.classList.add('active');
+  // Animation automatique pour desktop
+  if (!isMobile) {
+    let currentIndex = 0;
+    const accordionItems = document.querySelectorAll('.accordion-item');
+    
+    function activateAccordion(index: number) {
+      // Désactiver tous les items
+      accordionItems.forEach((item, i) => {
+        item.classList.remove('active');
+        document.getElementById(`content-${(item.querySelector('.accordion-btn') as HTMLElement).dataset.accordion}-desktop`)?.classList.add('hidden');
+        document.getElementById(`content-${(item.querySelector('.accordion-btn') as HTMLElement).dataset.accordion}-desktop`)?.classList.remove('active');
+      });
+      
+      // Activer l'item actuel
+      const currentItem = accordionItems[index];
+      currentItem.classList.add('active');
+      
+      // Afficher le contenu correspondant
+      const accordionId = (currentItem.querySelector('.accordion-btn') as HTMLElement).dataset.accordion;
+      const contentPanel = document.getElementById(`content-${accordionId}-desktop`);
+      
+      if (contentPanel) {
+        contentPanel.classList.remove('hidden');
+        contentPanel.classList.add('active');
+      }
+    }
+    
+    // Lancer l'animation automatique
+    const interval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % accordionItems.length;
+      activateAccordion(currentIndex);
+    }, 3000); // Changer toutes les 5 secondes
+    
+    // Arrêter l'animation au clic manuel
+    accordionBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        clearInterval(interval);
+      });
+    });
+    
+    // Activer le premier accordéon au démarrage
+    activateAccordion(0);
+  } else {
+    // Activer le premier accordéon par défaut pour mobile
+    document.querySelector('.accordion-item')?.classList.add('active');
+    document.getElementById('content-reconnue')?.classList.remove('hidden');
+    document.getElementById('content-reconnue')?.classList.add('active');
+  }
 </script>

@@ -22,15 +22,15 @@ import 'swiper/css/pagination';
     <div class="swiper-wrapper">
       <div class="swiper-slide">
         <div class="content px-10 pt-14">
-          <h3 class="text-white text-center text-xl font-bold font-bestley pb-3 md:text-2xl">Coiffure</h3>
-          <p class="text-white text-center text-sm md:text-base md:px-80">Techniques de coupe, colorimétrie, coiffures tendances… Nos programmes sur-mesure s'adaptent à tous les niveaux, de débutant à professionnel.</p>
+          <h3 class="text-white text-center text-xl font-bold font-bestley pb-3 md:text-2xl 2xl:text-3xl 2xl:pb-10">Coiffure</h3>
+          <p class="text-white text-center text-sm md:text-base md:px-80 2xl:px-[30rem] 2xl:text-xl">Techniques de coupe, colorimétrie, coiffures tendances… Nos programmes sur-mesure s'adaptent à tous les niveaux, de débutant à professionnel.</p>
           <button class="btn btn-primary mt-6 rounded-tr-lg rounded-bl-lg px-8 bg-white text-black border-none hover:bg-black hover:text-white">Découvrir</button>
         </div>
       </div>
       <div class="swiper-slide">
         <div class="content px-10 pt-14">
-          <h3 class="text-white text-center text-xl font-bold font-bestley pb-3 md:text-2xl">Esthétique</h3>
-          <p class="text-white text-center text-sm md:text-base md:px-80">Perfectionnez votre savoir-faire avec nos formations certifiées en esthétique. Soins du visage, maquillage professionnel, manucure… Nos programmes sur-mesure vous forment aux techniques essentielles pour réussir dans l'univers de la beauté.</p>
+          <h3 class="text-white text-center text-xl font-bold font-bestley pb-3 md:text-2xl 2xl:text-3xl 2xl:pb-10">Esthétique</h3>
+          <p class="text-white text-center text-sm md:text-base md:px-80 2xl:px-[30rem] 2xl:text-xl">Perfectionnez votre savoir-faire avec nos formations certifiées en esthétique. Soins du visage, maquillage professionnel, manucure… Nos programmes sur-mesure vous forment aux techniques essentielles pour réussir dans l'univers de la beauté.</p>
           <button class="btn btn-primary mt-6 rounded-tr-lg rounded-bl-lg px-8 bg-white text-black border-none hover:bg-black hover:text-white">Découvrir</button>
         </div>
       </div>
@@ -43,6 +43,7 @@ import 'swiper/css/pagination';
 <style>
   .carousel-container {
     position: relative;
+    height: 100%;
   }
 
   .bg-swiper, .content-swiper {
@@ -89,14 +90,29 @@ import 'swiper/css/pagination';
       transition: all 0.3s ease;
     }
   }
-  .carousel-container {
-    height: 80%;
-    padding: 2rem 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
 
+  @media (min-width: 1920px) {
+    .carousel-container {
+      height: 80%;
+      padding: 2rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .swiper-button-next, .swiper-button-prev {
+      transform: scale(1);
+      top: 16rem;
+    }
+
+    .swiper-button-next {
+      right: 25rem;
+    }
+
+    .swiper-button-prev {
+      left: 25rem;
+    }
+  }
   @media (min-width: 768px) {
     .carousel-container {
       height: 45%;
