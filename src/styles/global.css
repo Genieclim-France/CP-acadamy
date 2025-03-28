@@ -10,10 +10,20 @@
 :root {
   --primary-color: #1e1e1e;
   --secondary-color: #f0f0f0;
+}
+
+@theme {
+  --primary: var(--primary-color);
+  --secondary: var(--secondary-color);
   --gradient-start: #4158d0;
   --gradient-middle: #c751c0;
   --gradient-end: #ffcb70;
 }
+
+p {
+  font-family: "Montserrat", sans-serif;
+}
+
 .font-bestley {
   font-family: "Besley", serif;
 }

@@ -1,163 +1,73 @@
-<div class="formation-paths-container py-16 px-4 md:px-16">
-  <h2 class="text-center text-2xl md:text-3xl font-semibold mb-12 text-white">
-    Nos domaines de <span class="gradient-text">formation</span>
+---
+import How from "./How.astro";
+
+const sections = [
+  {
+    title: "Développement Personnel et Professionnel",
+    description: "Boostez votre confiance, apprenez à mieux gérer votre temps et développez des soft skills essentielles pour évoluer sereinement dans votre carrière.",
+    borderColor: "var(--gradient-start)"
+  },
+  {
+    title: "Leadership & Management",
+    description: "Apprenez à motiver, fédérer et gérer une équipe avec efficacité. Nos formations vous donnent les clés pour piloter des projets et prendre des décisions stratégiques.",
+    borderColor: "var(--gradient-middle)"
+  },
+  {
+    title: "Communication & Prise de Parole",
+    description: "Maîtrisez l'art de la communication orale pour captiver votre audience. Que ce soit pour des présentations, des entretiens ou des réunions, nous vous formons à une prise de parole impactante et persuasive.",
+    borderColor: "var(--gradient-end)"
+  },
+  {
+    title: "Compétences Numériques & Bureautiques",
+    description: "Devenez à l'aise avec les outils numériques et les logiciels indispensables du monde professionnel. Excel, Word n'auront plus de secret pour vous.",
+    borderColor: "var(--gradient-start)"
+  },
+  {
+    title: "Langues étrangères & Certifications",
+    description: "Améliorez votre maîtrise des langues et obtenez des certifications reconnues à l'international. Anglais, espagnol, français… Nos cours vous permettent de progresser rapidement.",
+    borderColor: "var(--gradient-middle)"
+  }
+];
+---
+
+<article class="py-16 px-4 md:px-40 ">
+  <h2 class="text-2xl md:text-3xl font-semibold font-bestley mb-12 text-white pl-2">
+    Nos formations
   </h2>
-  
-  <!-- En mobile : format timeline vertical -->
-  <div class="md:hidden relative max-w-xs mx-auto">
-    <!-- Ligne verticale avec dégradé -->
-    <div class="timeline-line absolute left-2.5 top-0 bottom-0 w-1 bg-gradient-to-b from-[#4158D0] via-[#C751C0] to-[#FFCB70]"></div>
-    
-    <!-- Points avec contenu -->
-    <div class="timeline-item flex mb-16 opacity-0">
-      <div class="timeline-dot bg-[#4158D0] rounded-full w-5 h-5 flex-shrink-0 z-10"></div>
-      <div class="timeline-content ml-6 p-4">
-        <h3 class="text-white text-lg font-bold mb-2">Développement personnel et professionnel</h3>
-      </div>
-    </div>
-    
-    <div class="timeline-item flex mb-16 opacity-0">
-      <div class="timeline-dot bg-[#C751C0] rounded-full w-5 h-5 flex-shrink-0 z-10"></div>
-      <div class="timeline-content ml-6 p-4">
-        <h3 class="text-white text-lg font-bold mb-2">Leadership et management</h3>
-      </div>
-    </div>
-    
-    <div class="timeline-item flex mb-16 opacity-0">
-      <div class="timeline-dot bg-[#FFCB70] rounded-full w-5 h-5 flex-shrink-0 z-10"></div>
-      <div class="timeline-content ml-6 p-4">
-        <h3 class="text-white text-lg font-bold mb-2">Communication et prise de parole</h3>
-      </div>
-    </div>
-    
-    <div class="timeline-item flex mb-16 opacity-0">
-      <div class="timeline-dot bg-[#4158D0] rounded-full w-5 h-5 flex-shrink-0 z-10"></div>
-      <div class="timeline-content ml-6 p-4">
-        <h3 class="text-white text-lg font-bold mb-2">Compétences numériques et bureautiques</h3>
-      </div>
-    </div>
-    
-    <div class="timeline-item flex opacity-0">
-      <div class="timeline-dot bg-[#FFCB70] rounded-full w-5 h-5 flex-shrink-0 z-10"></div>
-      <div class="timeline-content ml-6 p-4">
-        <h3 class="text-white text-lg font-bold mb-2">Langues étrangères et certification</h3>
-      </div>
-    </div>
+  <p class="text-white pl-2">Nous vous accompagnons dans des domaines variés :</p>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {sections.map(section => (
+      <section class="flex flex-col p-6 border-2 text-white rounded-bl-2xl rounded-tr-2xl mx-2 mt-6" style={`border-color: ${section.borderColor}`}>
+        <h3 class="text-xl font-bold pb-4">{section.title}</h3>
+        <p class="text-sm">{section.description}</p>
+      </section>
+    ))}
   </div>
-  
-  <!-- En desktop : format points connectés horizontalement -->
-  <div class="hidden md:block max-w-4xl mx-auto">
-    <!-- Première ligne -->
-    <div class="relative mb-20">
-      <div class="grid grid-cols-3 gap-8">
-        <div class="text-center">
-          <h3 class="text-xl font-bold mb-16 text-white">Développement personnel et professionnel</h3>
-        </div>
-        
-        <div class="text-center">
-          <h3 class="text-xl font-bold mb-16 text-white">Leadership et management</h3>
-        </div>
-        
-        <div class="text-center">
-          <h3 class="text-xl font-bold mb-16 text-white">Communication et prise de parole</h3>
-        </div>
-      </div>
-      
-      <!-- Points connectés -->
-      <div class="absolute bottom-0 left-0 right-0 flex justify-between items-center">
-        <div class="w-8 h-8 rounded-full bg-[#4158D0]"></div>
-        <div class="h-0.5 bg-[#4158D0] flex-grow mx-4"></div>
-        <div class="w-8 h-8 rounded-full bg-[#C751C0]"></div>
-        <div class="h-0.5 bg-[#C751C0] flex-grow mx-4"></div>
-        <div class="w-8 h-8 rounded-full bg-[#FFCB70]"></div>
+
+  <section class="bg-white rounded-bl-2xl rounded-tr-2xl md:rounded-bl-4xl md:rounded-tr-4xl mx-2 mt-12 md:col-span-full overflow-hidden">
+    <div class="md:flex md:items-center md:justify-between">
+      <header class="flex flex-col justify-center items-center gap-4 p-6 md:w-1/2 md:items-start md:pl-12">
+        <h2 class="text-xl font-bold pb-4 gradient-text md:text-4xl">Toutes les formations du groupe CP Academy</h2>
+        <button class="btn border border-black bg-none md:mt-5 md:text-lg rounded-bl-2xl rounded-tr-2xl w-fit hover:bg-black hover:text-white">
+          Découvrir
+        </button>
+      </header>
+      <div class="md:w-1/2 md:h-full md:m-0 md:p-0">
+        <img src="/src/assets/coiffeuse.png" class="w-full h-full object-cover md:h-64" alt="Coiffeuse">
       </div>
     </div>
-    
-    <!-- Deuxième ligne -->
-    <div class="relative">
-      <div class="grid grid-cols-2 gap-8">
-        <div class="text-center">
-          <h3 class="text-xl font-bold mb-16 text-white">Compétences numériques et bureautiques</h3>
-        </div>
-        
-        <div class="text-center">
-          <h3 class="text-xl font-bold mb-16 text-white">Langues étrangères et certification</h3>
-        </div>
-      </div>
-      
-      <!-- Points connectés -->
-      <div class="absolute bottom-0 left-0 right-0 flex justify-around items-center">
-        <div class="w-8 h-8 rounded-full bg-[#4158D0]"></div>
-        <div class="h-0.5 bg-[#4158D0] flex-grow mx-4"></div>
-        <div class="w-8 h-8 rounded-full bg-[#FFCB70]"></div>
-      </div>
-    </div>
-  </div>
-</div>
+  </section>
+  <How />
+</article>
 
 <style>
-  .timeline-item {
-    position: relative;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .timeline-item.appear {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .timeline-dot {
-    position: relative;
-    left: 0.7rem;
-    transform: translateX(-50%);
-  }
-
-  .timeline-line {
-    height: 0;
-    transition: height 1.5s ease;
-  }
-
-  .timeline-line.animate {
-    height: 100%;
+  .gradient-bg {
+    background: linear-gradient(
+      45deg,
+      rgba(65, 88, 208, 0.8) 0%,
+      rgba(199, 81, 192, 0.8) 50%,
+      rgba(255, 203, 112, 0.8) 100%
+    );
   }
 </style>
-
-<script>
-  // Fonction pour observer quand les éléments entrent dans la vue
-  document.addEventListener('DOMContentLoaded', () => {
-    const timelineLine = document.querySelector('.timeline-line');
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    
-    // Observer pour la ligne
-    const lineObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && timelineLine) {
-          timelineLine.classList.add('animate');
-        }
-      });
-    }, { threshold: 0.1 });
-    
-    // Observer pour les items
-    const itemObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Ajouter un délai différent pour chaque élément
-          setTimeout(() => {
-            entry.target.classList.add('appear');
-          }, Number((entry.target as HTMLElement).dataset.delay) || 0);
-        }
-      });
-    }, { threshold: 0.1 });
-    
-    // Ajouter des délais différents pour chaque élément
-    timelineItems.forEach((item, index) => {
-      (item as HTMLElement).dataset.delay = String(300 * (index + 1));
-      itemObserver.observe(item);
-    });
-    
-    // Observer la timeline pour démarrer l'animation de la ligne
-    if (timelineLine) lineObserver.observe(timelineLine);
-  });
-</script>
