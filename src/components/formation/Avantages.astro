@@ -1,0 +1,41 @@
+---
+const avantages = [
+  {
+    icon: "../src/assets/icons/time.svg",
+    text: "Commencez quand vous voulez",
+    color: "text-[#4158D0]" // Bleu
+  },
+  {
+    icon: "../src/assets/icons/desktop.svg",
+    text: "100% à distance",
+  },
+  {
+    icon: "../src/assets/icons/validate.svg",
+    text: "Éligible au CPF",
+  },
+  {
+    icon: "../src/assets/icons/certif.svg",
+    text: "Diplôme certifiant",
+  }
+];
+---
+
+<div class="flex flex-col items-center justify-center px-8 md:w-1/2">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+    {avantages.map(avantage => (
+      <div class="flex gap-6 w-full items-center">
+        <div class="bg-white rounded-full p-4 w-16 h-16 flex items-center justify-center shrink-0">
+          <img 
+            src={avantage.icon} 
+            alt="" 
+            class={`w-16 h-16 ${avantage.color} object-contain`}
+            aria-hidden="true"
+          />
+        </div>
+        <span class="text-white text-base font-semibold">
+          {avantage.text}
+        </span>
+      </div>
+    ))}
+  </div>
+</div>

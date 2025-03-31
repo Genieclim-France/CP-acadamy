@@ -1,0 +1,59 @@
+---
+interface Props {
+  filePath: string;
+  fileName: string;
+  label?: string;
+  class?: string;
+}
+
+const { filePath, fileName, label = "Télécharger la brochure"} = Astro.props;
+---
+<div class="flex justify-center gap-4 mt-6 md:mt-10">
+<button class="gradient-hover bg-white border font-montserrat font-semibold rounded-bl-xl rounded-tr-xl text-sm relative overflow-hidden transition-all duration-300 z-0 py-3 md:px-4">
+    <span class="relative z-10">Prendre <span class="text-nowrap">rendez-vous</span></span>
+  </button>
+<button
+  onclick={`window.open('${filePath}', '_blank')`}
+  class="w-1/2 inline-flex items-center text-sm px-2 py-3 border border-white text-white font-montserrat font-semibold rounded-bl-xl rounded-tr-xl hover:opacity-90 transition-opacity gradient-hover md:w-fit md:px-4 md:gap-2"
+  aria-label={`Télécharger ${fileName}`}
+>
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+  </svg>
+  {label}
+</button>
+</div>
+
+<style>
+  .gradient-hover {
+    position: relative;
+    isolation: isolate;
+    border: 1px solid;
+  }
+
+  .gradient-hover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      45deg,
+      #4158D0 0%,
+      #C751C0 50%,
+      #FFCB70 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  .gradient-hover:hover {
+    border-color: transparent;
+    color: white;
+  }
+
+  .gradient-hover:hover::before {
+    opacity: 1;
+  }
+</style>

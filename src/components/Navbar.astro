@@ -59,9 +59,17 @@
             </label>
           </header>
           <div class="flex flex-col items-center justify-center h-full">
-            <ul class="menu menu-vertical gap-8 text-2xl ">
+            <ul class="menu menu-vertical gap-8 text-2xl">
               <li><a href="/">Accueil</a></li>
-              <li><a>Nos formations</a></li>
+              <li class="dropdown-mobile">
+                <details>
+                  <summary>Nos formations</summary>
+                  <ul class="menu menu-vertical gap-4 pl-4 text-xl">
+                    <li class="mt-6"><a>Coiffure</a></li>
+                    <li><a>Esthétique</a></li>
+                  </ul>
+                </details>
+              </li>
               <li><a href="/about">Groupe CP</a></li>
             </ul>
           </div>
@@ -259,5 +267,33 @@
 
 .dropdown-menu ul li a:hover {
   background-color: transparent;
+}
+
+/* Styles pour le dropdown mobile */
+.dropdown-mobile details {
+  color: black;
+}
+
+.dropdown-mobile summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.dropdown-mobile details[open] ul {
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
   </style>
