@@ -39,7 +39,14 @@ export const formations: Formations = {
   },
   esthetique: {
     title: "l'esthétique",
-    description: "Maîtrisez l'art des soins esthétiques",
+    description:
+      "Obtenez votre diplôme en esthétique, un diplôme d'État niveau 3, et devenez expert en soins du visage, manucure et épilation.",
+    list: [
+      "450h de formation et 20 parcours",
+      "Des contenus techniques et théoriques variés (vidéos, quizz, infographie, visite virtuelle...)",
+      "Des exercices pratiques encadrés par des professionnels de l'esthétique",
+      "Des modules techniques hors référentiel offerts (maquillage, soins avancés...)",
+    ],
     modules: ["Soins visage", "Manucure", "Épilation"],
     price: "2800€",
     brochure: {
