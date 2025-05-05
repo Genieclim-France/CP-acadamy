@@ -10,7 +10,7 @@ const { filePath, fileName, label = "Télécharger la brochure"} = Astro.props;
 ---
 <div class="flex justify-center gap-4 mt-6 md:mt-10">
   <button class="btn-rdv font-montserrat font-semibold rounded-bl-xl rounded-tr-xl text-sm relative overflow-hidden transition-all duration-300 py-3 md:px-4">
-    <span class="relative z-10">Prendre <span class="text-nowrap">rendez-vous</span></span>
+    <a href="/#contact" class="relative z-10">Prendre <span class="text-nowrap">rendez-vous</span></a>
     <div class="glow-effect"></div>
   </button>
   <button

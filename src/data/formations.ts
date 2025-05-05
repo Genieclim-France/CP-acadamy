@@ -53,5 +53,6 @@ export const formations: Formations = {
       path: esthetiquePDF,
       fileName: "formation-esthetique.pdf",
     },
+    image: "../src/assets/esthetique-img.png",
   },
 };
