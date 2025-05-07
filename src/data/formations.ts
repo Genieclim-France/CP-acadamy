@@ -1,6 +1,3 @@
-import coiffurePDF from "/brochures/formation-coiffure.pdf";
-import esthetiquePDF from "/brochures/formation-esthetique.pdf";
-
 export interface Formation {
   title: string;
   description: string;
@@ -32,10 +29,10 @@ export const formations: Formations = {
     modules: ["Coupe", "Coloration", "Brushing"],
     price: "2500€",
     brochure: {
-      path: coiffurePDF,
+      path: "/brochures/formation-coiffure.pdf",
       fileName: "formation-coiffure.pdf",
     },
-    image: "../src/assets/coiffure-img.png",
+    image: "/assets/coiffure-img.png",
   },
   esthetique: {
     title: "l'esthétique",
@@ -50,9 +47,9 @@ export const formations: Formations = {
     modules: ["Soins visage", "Manucure", "Épilation"],
     price: "2800€",
     brochure: {
-      path: esthetiquePDF,
+      path: "/brochures/formation-esthetique.pdf",
       fileName: "formation-esthetique.pdf",
     },
-    image: "../src/assets/esthetique-img.png",
+    image: "/assets/esthetique-img.png",
   },
 };
