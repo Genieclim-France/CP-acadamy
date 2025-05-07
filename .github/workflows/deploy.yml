@@ -1,4 +1,4 @@
-name: Deploy
+name: Build
 
 on:
   push:
@@ -22,31 +22,3 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/cpacademy:latest
-
-  deploy:
-    needs: build-and-push
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to server
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          port: 22
-          script: |
-            cd ~/cpacademy || mkdir ~/cpacademy && cd ~/cpacademy
-            # Créer/mettre à jour docker-compose.yml
-            cat > docker-compose.yml <<EOF
-            version: '3.8'
-            services:
-              cpacademy:
-                image: ${{ secrets.DOCKERHUB_USERNAME }}/cpacademy:latest
-                container_name: cpacademy
-                ports:
-                  - "3000:80"
-                restart: unless-stopped
-            EOF
-            docker compose down
-            docker compose pull
-            docker compose up -d
