@@ -10,6 +10,8 @@ RUN npm run build
 FROM nginx:alpine
 # Copier les fichiers générés
 COPY --from=builder /app/dist/ /usr/share/nginx/html/
+# Copier les assets depuis public
+COPY --from=builder /app/public/ /usr/share/nginx/html/
 # Remplacer la configuration nginx par défaut
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80

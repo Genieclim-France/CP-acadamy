@@ -19,4 +19,8 @@ export default defineConfig({
     assetsInclude: ["**/*.pdf"],
     envPrefix: ["SENDGRID_"],
   },
+
+  build: {
+    assets: "assets",
+  },
 });
