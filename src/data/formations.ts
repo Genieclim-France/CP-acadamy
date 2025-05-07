@@ -1,5 +1,5 @@
-import coiffurePDF from "../public/brochures/formation-coiffure.pdf";
-import esthetiquePDF from "../public/brochures/formation-esthetique.pdf";
+import coiffurePDF from "/brochures/formation-coiffure.pdf";
+import esthetiquePDF from "/brochures/formation-esthetique.pdf";
 
 export interface Formation {
   title: string;
