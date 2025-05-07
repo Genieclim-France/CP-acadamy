@@ -1,9 +1,7 @@
 export interface Formation {
+  subTitle: string;
   title: string;
-  description: string;
-  list?: string[];
-  modules: string[];
-  price: string;
+  description: string[];
   brochure: {
     path: string;
     fileName: string;
@@ -17,39 +15,29 @@ export interface Formations {
 
 export const formations: Formations = {
   coiffure: {
-    title: "la coiffure",
-    description:
-      "Obtenez votre diplôme de coiffure, un diplôme d'État niveau 3, et devenez expert en soins, coupe, coloration et vente.",
-    list: [
-      "500h de formation et 24 parcours",
-      "Des contenus techniques et théoriques variés (vidéos, quizz, infographie, visite virtuelle...)",
-      "Des exercices corrigés par un professionnel de la coiffure",
-      "Des modules techniques hors référentiel offerts (wavy, balayage, barbier...)",
+    subTitle: "Formation métier de la coiffure -",
+    title: "Browlift & Rehaussement de cils",
+    description: [
+      "Maîtrisez les techniques tendance du browlift et du rehaussement de cils grâce à notre formation certifiée. Apprenez à sublimer le regard de vos clientes avec des gestes professionnels, sûrs et durables. ",
+      "Cette formation s’adresse aux passionné(e)s de la beauté souhaitant enrichir leurs compétences ou lancer leur activité dans le secteur de la coiffure et de l’esthétique du regard. Avec CP Academy, accédez à un enseignement de qualité et valorisez votre savoir-faire dans un marché en pleine croissance.",
     ],
-    modules: ["Coupe", "Coloration", "Brushing"],
-    price: "2500€",
     brochure: {
       path: "/brochures/formation-coiffure.pdf",
       fileName: "formation-coiffure.pdf",
     },
-    image: "/assets/coiffure-img.png",
+    image: "/assets/browlift.png",
   },
   esthetique: {
-    title: "l'esthétique",
-    description:
-      "Obtenez votre diplôme en esthétique, un diplôme d'État niveau 3, et devenez expert en soins du visage, manucure et épilation.",
-    list: [
-      "450h de formation et 20 parcours",
-      "Des contenus techniques et théoriques variés (vidéos, quizz, infographie, visite virtuelle...)",
-      "Des exercices pratiques encadrés par des professionnels de l'esthétique",
-      "Des modules techniques hors référentiel offerts (maquillage, soins avancés...)",
+    subTitle: "Formation métier de l'esthétique -",
+    title: "Création d’entreprise & Soin capillaire au Botox",
+    description: [
+      "Lancez votre activité en toute confiance grâce à notre formation double compétence : création d’entreprise et soin capillaire au Botox. ",
+      "Apprenez à structurer un projet viable, maîtrisez les étapes administratives, et développez une offre esthétique innovante. Le soin au Botox, tendance incontournable dans les instituts, vous permettra d’offrir des résultats visibles et durables à votre clientèle. Intégrez une formation complète, pensée pour les futur(e)s entrepreneur(e)s de l’esthétique.",
     ],
-    modules: ["Soins visage", "Manucure", "Épilation"],
-    price: "2800€",
     brochure: {
       path: "/brochures/formation-esthetique.pdf",
       fileName: "formation-esthetique.pdf",
     },
-    image: "/assets/esthetique-img.png",
+    image: "/assets/botox.png",
   },
 };

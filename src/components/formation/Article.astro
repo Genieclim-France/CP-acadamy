@@ -10,8 +10,8 @@ const formationsArray = Object.values(formations);
 <section class="py-12 md:flex md:flex-row md:justify-center md:items-center md:pl-32 2xl:pl-72 2xl:gap-16">
   <Avantages />
   <div class="relative py-4 gradient-bg text-white px-8 mt-6 md:w-1/2 md:h-fit md:p-10 md:mt-0 2xl:pl-5">
-    <p class="relative z-10 py-6 font-bestley text-5xl md:text-6xl md:leading-8 font-bold px-10 md:px-40 2xl:text-7xl 2xl:px-80 text-center leading-6">
-      96% <span class="font-montserrat text-xl md:text-2xl 2xl:text-3xl text-nowrap">de réussite</span>
+    <p class="relative z-10 py-6 font-bestley text-5xl md:text-6xl md:leading-8 font-bold px-10 md:px-32 2xl:text-6xl 2xl:px-52 text-center leading-10 2xl:leading-12">
+      <span class="text-nowrap 2xl:text-8xl">2</span> jours <span class="font-montserrat text-xl md:text-2xl 2xl:text-3xl text-nowrap">de formation</span>
     </p>
   </div>
 </section>
@@ -19,19 +19,17 @@ const formationsArray = Object.values(formations);
 {formationsArray.map((formation, index) => (
   <div id={formation.title} class={`flex flex-col items-center 2xl:items-start mt-12 mb-32 2xl:mb-0 ${index === 0 ? 'md:flex-row-reverse md:pr-20' : 'md:flex-row md:pl-20'} md:gap-20 md:mt-10 md:justify-center`}>
     <article class={`w-full px-8 md:w-1/2 ${index === 0 ? '2xl:pr-36' : '2xl:pl-36'} flex flex-col`}>
-      <h2 class="text-xl 2xl:text-3xl font-semibold text-white font-bestley mb-6 2xl:mt-16">
-        Présentation de la formation métier de {formation.title}
+      <h3 class="text-white text-lg 2xl:text-xl font-semibold font-bestley 2xl:mt-16">
+       {formation.subTitle}
+      </h3>
+      <h2 class="text-xl 2xl:text-3xl font-semibold text-white font-bestley mb-6 2xl:mb-0">
+       {formation.title}
       </h2>
-      <p class="text-white mb-2 2xl:text-xl 2xl:mt-10">
-        {formation.description}
+      <p class="text-white mb-2 2xl:text-xl">
+        {formation.description.map((item: string) => (
+          <p class="text-white mb-2 2xl:text-xl 2xl:mt-10">{item}</p>
+        ))}
       </p>
-      {formation.list && (
-        <ul class="list-disc list-inside text-white 2xl:text-xl">
-          {formation.list.map((item: string) => (
-            <li class="mb-2">{item}</li>
-          ))}
-        </ul>
-      )}
       <DownloadButton 
         filePath={formation.brochure.path}
         fileName={formation.brochure.fileName}
