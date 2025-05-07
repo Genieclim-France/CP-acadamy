@@ -10,14 +10,16 @@ RUN npm run build
 
 # Étape de production
 FROM nginx:alpine
-# Créer le dossier assets explicitement
-RUN mkdir -p /usr/share/nginx/html/assets
-# Copier explicitement les assets
-COPY --from=builder /app/src/assets/ /usr/share/nginx/html/assets/
 # Copier les fichiers générés
 COPY --from=builder /app/dist/client/ /usr/share/nginx/html/
-# Copier public si existant
-COPY --from=builder /app/public/ /usr/share/nginx/html/
+
+# Copier les assets en préservant la structure
+COPY --from=builder /app/src/assets/ /usr/share/nginx/html/assets/
+
+# Créer explicitement les sous-dossiers si nécessaire
+RUN mkdir -p /usr/share/nginx/html/assets/icons
+RUN mkdir -p /usr/share/nginx/html/assets/carrousel
+
 # Configuration nginx
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Pour debug
