@@ -13,12 +13,19 @@ FROM nginx:alpine
 # Copier les fichiers générés
 COPY --from=builder /app/dist/client/ /usr/share/nginx/html/
 
-# Copier les assets en préservant la structure
+# Copier les assets en conservant la structure
 COPY --from=builder /app/src/assets/ /usr/share/nginx/html/assets/
 
-# Créer explicitement les sous-dossiers si nécessaire
-RUN mkdir -p /usr/share/nginx/html/assets/icons
+# Créer le sous-dossier carrousel s'il n'existe pas déjà
 RUN mkdir -p /usr/share/nginx/html/assets/carrousel
+
+# Déplacer les fichiers slider si nécessaire
+RUN if [ -f /usr/share/nginx/html/assets/slider-1.png ]; then \
+    mv /usr/share/nginx/html/assets/slider-1.png /usr/share/nginx/html/assets/carrousel/; \
+    fi
+RUN if [ -f /usr/share/nginx/html/assets/slider-2.png ]; then \
+    mv /usr/share/nginx/html/assets/slider-2.png /usr/share/nginx/html/assets/carrousel/; \
+    fi
 
 # Configuration nginx
 COPY nginx.conf /etc/nginx/conf.d/default.conf
