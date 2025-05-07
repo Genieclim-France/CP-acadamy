@@ -8,7 +8,7 @@ import tailwindcss from "@tailwindcss/vite";
 // https://astro.build/config
 export default defineConfig({
   site: "https://cpacademy.fr",
-  output: "server",
+  output: "static",
   integrations: [react()],
   adapter: nodeAdapter({
     mode: "standalone",
