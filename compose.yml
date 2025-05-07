@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+  cpacademy:
+    image: ${{ secrets.DOCKERHUB_USERNAME }}/cpacademy:latest
+    container_name: cpacademy
+    ports:
+      - "3000:80"
+    restart: unless-stopped
