@@ -22,8 +22,8 @@ export const formations: Formations = {
       "Cette formation s’adresse aux passionné(e)s de la beauté souhaitant enrichir leurs compétences ou lancer leur activité dans le secteur de la coiffure et de l’esthétique du regard. Avec CP Academy, accédez à un enseignement de qualité et valorisez votre savoir-faire dans un marché en pleine croissance.",
     ],
     brochure: {
-      path: "/brochures/formation-coiffure.pdf",
-      fileName: "formation-coiffure.pdf",
+      path: "/brochures/BROCHURE-BROWLIFT.pdf",
+      fileName: "BROCHURE-BROWLIFT.pdf",
     },
     image: "/assets/browlift.png",
   },
@@ -35,8 +35,8 @@ export const formations: Formations = {
       "Apprenez à structurer un projet viable, maîtrisez les étapes administratives, et développez une offre esthétique innovante. Le soin au Botox, tendance incontournable dans les instituts, vous permettra d’offrir des résultats visibles et durables à votre clientèle. Intégrez une formation complète, pensée pour les futur(e)s entrepreneur(e)s de l’esthétique.",
     ],
     brochure: {
-      path: "/brochures/formation-esthetique.pdf",
-      fileName: "formation-esthetique.pdf",
+      path: "/brochures/BROCHURE-BOTOX.pdf",
+      fileName: "BROCHURE-BOTOX.pdf",
     },
     image: "/assets/botox.png",
   },
