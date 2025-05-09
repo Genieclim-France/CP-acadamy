@@ -3,8 +3,8 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Mentions Légales - CP Academy">
-  <main class="mx-auto px-10 mentions-legales text-white">
-    <h1 class="text-3xl font-bestley mb-8 md:text-4xl">Mentions Légales</h1>
+  <main class="mx-auto px-4 md:px-16 lg:px-32 xl:px-64 2xl:px-96 mentions-legales text-white">
+    <h1 class="text-3xl font-bestley mb-20 md:text-4xl">Mentions Légales</h1>
     
     <div class="space-y-8">
       <section>
@@ -20,12 +20,22 @@ import Layout from '../layouts/Layout.astro';
       </section>
 
       <section>
-        <h2 class="text-xl font-bold mb-4">2. Propriété intellectuelle</h2>
+        <h2 class="text-xl font-bold mb-4">2. Hébergement</h2>
+        <p>Ce site est hébergé par :</p>
+        <ul class="list-disc ml-6 mt-2 space-y-2">
+          <li>Hostinger International Ltd.</li>
+          <li>Adresse : 61 Lordou Vironos Street, 6023 Larnaca, Chypre</li>
+          <li>Site web : <a href="https://www.hostinger.fr" target="_blank" class="underline hover:text-blue-300">www.hostinger.fr</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold mb-4">3. Propriété intellectuelle</h2>
         <p class="mb-4">L'ensemble du contenu de ce site (textes, images, vidéos, etc.) est protégé par le droit d'auteur. Toute reproduction ou représentation, totale ou partielle, de ce site par quelque procédé que ce soit, sans autorisation expresse, est interdite et constituerait une contrefaçon sanctionnée par les articles L.335-2 et suivants du Code de la propriété intellectuelle.</p>
       </section>
 
       <section>
-        <h2 class="text-xl font-bold mb-4">3. Protection des données personnelles</h2>
+        <h2 class="text-xl font-bold mb-4">4. Protection des données personnelles</h2>
         <p class="mb-4">Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition aux données personnelles vous concernant.</p>
         <p>Pour exercer ces droits, vous pouvez nous contacter :</p>
         <ul class="list-disc ml-6 mt-2">
@@ -35,12 +45,12 @@ import Layout from '../layouts/Layout.astro';
       </section>
 
       <section>
-        <h2 class="text-xl font-bold mb-4">4. Cookies</h2>
+        <h2 class="text-xl font-bold mb-4">5. Cookies</h2>
         <p class="mb-4">Le site utilise des cookies pour améliorer l'expérience utilisateur. En navigant sur ce site, vous acceptez l'utilisation de cookies conformément à notre politique de confidentialité.</p>
       </section>
 
       <section>
-        <h2 class="text-xl font-bold mb-4">5. Loi applicable</h2>
+        <h2 class="text-xl font-bold mb-4">6. Loi applicable</h2>
         <p class="mb-4">Les présentes mentions légales sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents.</p>
       </section>
     </div>
@@ -50,5 +60,6 @@ import Layout from '../layouts/Layout.astro';
 <style>
     .mentions-legales {
         padding-top: 12rem;
+        padding-bottom: 6rem;
     }
 </style>
