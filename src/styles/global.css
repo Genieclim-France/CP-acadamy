@@ -46,6 +46,16 @@ body {
   background-blend-mode: overlay;
 }
 
+/* Hack Safari uniquement */
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    body {
+      background-image: none;
+      background-color: #1e1e1e;
+    }
+  }
+}
+
 .gradient-text {
   background-image: linear-gradient(
     90deg,

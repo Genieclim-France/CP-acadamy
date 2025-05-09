@@ -1,6 +1,9 @@
 <header class="relative flex flex-col items-center md:items-start md:justify-center pt-28 px-10 h-[100vh]">
     <img src="/assets/logo.svg" class="md:hidden w-40 h-40">
-    <video src="/assets/hero.webm" autoplay muted class="absolute top-0 left-0 w-full h-full object-cover -z-10 opacity-50"></video>
+    <video autoplay muted playsinline loop class="absolute top-0 left-0 w-full h-full object-cover -z-10 opacity-50">
+        <source src="/assets/hero.mov" type="video/quicktime">
+        <source src="/assets/hero.webm" type="video/webm">
+    </video>
     <img src="/assets/girl-hero.png" class="absolute bottom-0 right-0 h-1/2 md:w-1/2 md:h-full md:right-0 object-contain object-right-bottom animate-fade-left animate-ease-in-out animate-delay-[1250ms]">
     <div class="flex flex-col items-center justify-center md:items-start md:w-1/2 md:pl-24 2xl:pl-40 text-center z-10">
         <h1 class="text-lg text-start leading-6 md:leading-10 md:text-4xl font-bold"><span class="gradient-text">Développez</span> vos <span class="gradient-text">compétences, investissez</span> en vous même !</h1>
@@ -8,6 +11,28 @@
         <button onclick="window.location.href='/#contact'" class="btn rounded-tr-xl rounded-bl-xl bg-none border-white text-white mt-8 hover:bg-white hover:text-black mb-10">Prenez rendez-vous</button>
     </div>
 </header>
+
+<script>
+  // Détection de Safari
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  
+  if (isSafari) {
+    // Assurez-vous que la vidéo MOV est chargée sur Safari
+    const video = document.querySelector('video');
+    if (video) {
+      const movSource = document.createElement('source');
+      movSource.src = '/assets/hero.mov';
+      movSource.type = 'video/quicktime';
+      
+      // Placer la source MOV en premier pour Safari
+      if (video.firstChild) {
+        video.insertBefore(movSource, video.firstChild);
+      } else {
+        video.appendChild(movSource);
+      }
+    }
+  }
+</script>
 
 <style>
     h1 {

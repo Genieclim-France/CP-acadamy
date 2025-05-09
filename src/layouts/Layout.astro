@@ -21,11 +21,27 @@ import "../styles/global.css";
 	</body>
 </html>
 
+<script is:inline>
+	// Détection de Safari
+	const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+	
+	// Appliquer un style spécifique pour Safari
+	if (isSafari) {
+		document.body.classList.add('safari-browser');
+	}
+</script>
+
 <style>
 	html,
 	body {
 		margin: 0;
 		width: 100%;
 		height: 100%;
+	}
+
+	/* Style pour Safari uniquement */
+	.safari-browser {
+		background-image: none !important;
+		background-color: #1e1e1e !important;
 	}
 </style>
