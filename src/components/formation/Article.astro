@@ -37,10 +37,10 @@ const formationsArray = formationKey
     ))}
     <DownloadButton filePath={formation.brochure.path} fileName={formation.brochure.fileName} />
     </section>
-    <section class="flex flex-col items-center justify-center mt-16 mx-10 md:mx-0 md:h-fit md:w-2/4 image-container" id="image-container-{index}">
-      <div class="color-spot blue-spot" data-color="blue"></div>
-      <div class="color-spot pink-spot-left" data-color="pink-left"></div>
-      <div class="color-spot yellow-spot" data-color="yellow"></div>
+    <section class="flex flex-col items-center justify-center mt-16 px-10 md:px-0 md:h-fit md:w-2/4 image-container" id="image-container-{index}">
+      <div class="color-spot blue-spot hidden md:block" data-color="blue"></div>
+      <div class="color-spot pink-spot-left hidden md:block" data-color="pink-left"></div>
+      <div class="color-spot yellow-spot hidden md:block" data-color="yellow"></div>
       <div class="color-spot pink-spot-right" data-color="pink-right"></div>
       <img src={formation.thumbnail} alt={formation.title} class="w-full h-full object-contain md:h-fit relative z-10 pointer-events-none" />
     </section>
@@ -49,7 +49,7 @@ const formationsArray = formationKey
     <h4 class="text-white text-xl mt-16 md:text-3xl font-semibold md:mt-24 font-bestley">{formation.secondSectionTitle}</h4>
     <Cards formationKey={formationKey} />
   </section>
-  <h4 class="text-white text-2xl mt-16 mb-4 ml-8 md:text-3xl font-semibold 2xl:mt-16 md:px-26 2xl:pl-72 md:pb-10 md:pt-32 font-bestley">Nos autres formations</h4>
+  <h4 class="text-white text-2xl mt-16 mb-4 ml-8 md:text-3xl font-semibold 2xl:mt-16 md:px-26 2xl:pl-64 md:pb-10 md:pt-32 font-bestley">Nos autres formations</h4>
   <FormationsCards formationKey={formationKey} />
 ))}
 
@@ -66,6 +66,7 @@ const formationsArray = formationKey
   .image-container {
     position: relative;
     overflow: visible;
+    max-width: 100%;
   }
   
   .color-spot {
