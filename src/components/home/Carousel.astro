@@ -11,27 +11,38 @@ import 'swiper/css/pagination';
     <div class="swiper-wrapper">
       <div class="swiper-slide bg-coiffure"></div>
       <div class="swiper-slide bg-esthetique"></div>
+      <div class="swiper-slide bg-prothesiste"></div>
     </div>
   </div>
 
   <!-- Swiper pour le contenu avec effet slide -->
   <div class="swiper content-swiper">
-    <h2 class="fixed-title text-center text-2xl font-bold font-bestley text-white z-10 px-10 md:text-4xl md:pt-10 mb-4 md:mb-6 lg:mb-12">
+    <h2 class="fixed-title text-center text-2xl font-bold font-bestley text-white z-10 px-10 md:text-4xl md:pt-0 mb-4 md:mb-6 lg:mb-12">
         Des formations diverses et variées
     </h2>
     <div class="swiper-wrapper">
       <div class="swiper-slide">
-        <div class="content px-10 pt-14">
-          <h3 class="text-white text-center text-xl font-bold font-bestley pb-3 pt-10 md:text-2xl 2xl:text-3xl 2xl:pb-10">Browlift & Rehaussement de cils</h3>
+        <div class="content px-10 pt-14 md:pt-10">
+          <h3 class="text-white text-center text-xl font-bold font-bestley pt-10 pb-2 md:text-2xl 2xl:text-3xl 2xl:pb-10">Browlift & Rehaussement de cils</h3>
+          <h3 class="font-bestley font-semibold pb-3">Création / Développement d'entreprise & Techniques professionnelles</h3>
           <p class="text-white text-center text-sm md:text-base md:px-80 2xl:px-[30rem] 2xl:text-xl">Redonnez éclat et intensité au regard avec des techniques maîtrisées. Apprenez à structurer les sourcils et sublimer les cils en toute sécurité, quel que soit votre niveau.</p>
-          <a href="/formation" class="btn btn-primary mt-6 rounded-tr-lg rounded-bl-lg px-8 bg-white text-black border-none hover:bg-black hover:text-white">Découvrir</a>
+          <a href="/browlift" class="btn btn-primary mt-6 rounded-tr-lg rounded-bl-lg px-8 bg-white text-black border-none hover:bg-black hover:text-white">Découvrir</a>
         </div>
       </div>
       <div class="swiper-slide">
         <div class="content px-10 pt-14">
-          <h3 class="text-white text-center text-xl font-bold font-bestley pb-3 md:text-2xl 2xl:text-3xl 2xl:pb-10">Création d'entreprise & Soin capillaire au Botox</h3>
+          <h3 class="text-white text-center text-xl font-bold font-bestley pt-10 pb-2 md:text-2xl 2xl:text-3xl 2xl:pb-10">Soin capillaire au Botox</h3>
+          <h3 class="font-bestley font-semibold pb-3">Création / Développement d'entreprise & Techniques professionnelles</h3>
           <p class="text-white text-center text-sm md:text-base md:px-80 2xl:px-[30rem] 2xl:text-xl">Alliez savoir-faire esthétique et esprit d'entrepreneur. Apprenez à lancer votre activité et à maîtriser un soin capillaire tendance, pour offrir des résultats visibles dès la première application.</p>
-          <a href="/formation" class="btn btn-primary mt-6 rounded-tr-lg rounded-bl-lg px-8 bg-white text-black border-none hover:bg-black hover:text-white">Découvrir</a>
+          <a href="/botox" class="btn btn-primary mt-6 rounded-tr-lg rounded-bl-lg px-8 bg-white text-black border-none hover:bg-black hover:text-white">Découvrir</a>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="content px-10 pt-14">
+          <h3 class="text-white text-center text-xl font-bold font-bestley pt-10 pb-2 md:text-2xl 2xl:text-3xl 2xl:pb-10">Prothésiste ongulaire</h3>
+          <h3 class="font-bestley font-semibold pb-3">Création / Développement d'entreprise & Techniques professionnelles</h3>
+          <p class="text-white text-center text-sm md:text-base md:px-80 2xl:px-[30rem] 2xl:text-xl">Découvrez les techniques de prothésiste ongulaire et offrez des soins de qualité à vos clients. Apprenez à maîtriser les techniques de prothésiste ongulaire et à offrir des résultats professionnels et esthétiques.</p>
+          <a href="/prothesiste" class="btn btn-primary mt-6 rounded-tr-lg rounded-bl-lg px-8 bg-white text-black border-none hover:bg-black hover:text-white">Découvrir</a>
         </div>
       </div>
     </div>
@@ -115,7 +126,7 @@ import 'swiper/css/pagination';
   }
   @media (min-width: 768px) {
     .carousel-container {
-      height: 45%;
+      height: 50%;
     }
   }
 
@@ -140,6 +151,12 @@ import 'swiper/css/pagination';
 
   .bg-esthetique {
     background-image: url('/assets/carrousel/slider-2.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .bg-prothesiste {
+    background-image: url('/assets/carrousel/slider-3.png');
     background-size: cover;
     background-position: center;
   }

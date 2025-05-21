@@ -1,7 +1,6 @@
 ---
 export const prerender = true;
 import Layout from '../layouts/Layout.astro';
-import DownloadButton from '../components/formation/DownloadButton.astro';
 import { formations } from '../data/formations';
 import Hero from '../components/formation/Hero.astro';
 import Article from '../components/formation/Article.astro';
@@ -13,12 +12,14 @@ export function getStaticPaths() {
 }
 
 const { formation } = Astro.params;
-const formationData = formations[formation];
+// Vérification que la formation existe
+if (!formations[formation]) {
+  return new Response('Formation non trouvée', { status: 404 });
+}
 ---
 
 <Layout>
-  <Hero />
-  <Article />
-
+  <Hero formationKey={formation} />
+  <Article formationKey={formation} />
 </Layout>
 

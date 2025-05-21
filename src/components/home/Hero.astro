@@ -1,10 +1,66 @@
-<header class="relative flex flex-col items-center md:items-start md:justify-center pt-28 px-10 h-[100vh]">
+<header class="relative flex flex-col items-center md:items-start md:justify-center pt-28 px-10 h-[100vh]" id="hero-section">
     <img src="/assets/logo.svg" class="md:hidden w-40 h-40">
-    <video autoplay muted playsinline loop class="absolute top-0 left-0 w-full h-full object-cover -z-10 opacity-50">
+    <!-- <video autoplay muted playsinline class="absolute top-0 left-0 w-full h-full object-cover -z-10 opacity-50">
         <source src="/assets/hero.mov" type="video/quicktime">
         <source src="/assets/hero.webm" type="video/webm">
-    </video>
-    <img src="/assets/girl-hero.png" class="absolute bottom-0 right-0 h-1/2 md:w-1/2 md:h-full md:right-0 object-contain object-right-bottom animate-fade-left animate-ease-in-out animate-delay-[1250ms]">
+    </video> -->
+    
+    <!-- Taches de poudre colorées avec tailles adaptatives -->
+    <div class="powder-spots absolute top-0 left-0 w-full h-full pointer-events-none">
+        <!-- Tache bleue principale - s'agrandit progressivement avec la taille d'écran -->
+        <div class="powder-spot blue-powder parallax-element" 
+             data-parallax-speed="0.03"
+             style="bottom: 15%; left: 22%; 
+                    width: 220px; height: 220px; 
+                    --lg-size: 280px; --xl-size: 350px; --2xl-size: 420px;">
+        </div>
+        
+        <!-- Tache bleue secondaire -->
+        <div class="powder-spot blue-powder parallax-element" 
+             data-parallax-speed="0.05"
+             style="bottom: 20%; left: 35%; 
+                    width: 150px; height: 150px; 
+                    --lg-size: 200px; --xl-size: 250px; --2xl-size: 300px;
+                    opacity: 0.5;">
+        </div>
+        
+        <!-- Tache rose -->
+        <div class="powder-spot pink-powder parallax-element" 
+             data-parallax-speed="0.04"
+             style="bottom: 40%; right: 60%; 
+                    width: 250px; height: 250px;
+                    --lg-size: 320px; --xl-size: 400px; --2xl-size: 480px;">
+        </div>
+        
+        <!-- Tache jaune -->
+        <div class="powder-spot yellow-powder parallax-element" 
+             data-parallax-speed="0.06"
+             style="bottom: 5%; left: 10%; 
+                    width: 170px; height: 170px; 
+                    --lg-size: 220px; --xl-size: 280px; --2xl-size: 340px;
+                    opacity: 0.5;">
+        </div>
+    </div>
+    
+    <!-- Image originale avec sa position inchangée -->
+    <img src="/assets/girl-hero.png" class="hero-image absolute bottom-0 right-0 h-1/2 md:w-1/2 md:h-full md:right-0 object-contain object-right-bottom animate-fade-left animate-ease-in-out animate-delay-[1250ms] hidden md:block">
+    
+    <!-- Conteneur pour le SVG de contour avec position corrigée -->
+    <div class="svg-container absolute bottom-0 right-0 h-1/2 md:w-[55%] md:h-full pointer-events-none opacity-0">
+        <!-- SVG avec preserveAspectRatio ajusté pour l'aligner à droite -->
+        <svg class="w-full h-full" viewBox="0 0 758 1175" preserveAspectRatio="xMaxYMax meet">
+            <defs>
+                <linearGradient id="outlineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#4158D0" />
+                    <stop offset="50%" stop-color="#C751C0" />
+                    <stop offset="100%" stop-color="#FFCB70" />
+                </linearGradient>
+            </defs>
+            
+            <path id="silhouette-path" d="M602.071 1C665.271 21.4 731.404 97.8333 756.571 133.5L755.571 895.5C699.971 917.1 724.738 1090.5 744.071 1174.5H236.071L223.071 1068.5C100.571 989.5 81.5713 821.5 81.5713 786C52.7713 768.4 43.9046 725.333 43.0713 706C28.0713 662 44.5713 675.5 38.0713 631.5C26.4713 556.7 26.2376 532.667 27.5708 530C-2.9292 432.5 -0.929195 403 3.5708 307.5C12.3708 173.1 151.237 47.1667 219.571 1H602.071Z" fill="none" stroke="url(#outlineGradient)" stroke-width="2.5" stroke-opacity="0" />
+        </svg>
+    </div>
+    
     <div class="flex flex-col items-center justify-center md:items-start md:w-1/2 md:pl-24 2xl:pl-40 text-center z-10">
         <h1 class="text-lg text-start leading-6 md:leading-10 md:text-4xl font-bold"><span class="gradient-text">Développez</span> vos <span class="gradient-text">compétences, investissez</span> en vous même !</h1>
         <p class="text-start pt-4 text-white text-xs md:text-base md:pt-4"><span class="font-bold">Transformez votre avenir professionnel</span> grâce à des formations éligibles au Compte Personnel de Formation (CPF). <span class="font-bold">Profitez d'un financement à 100%</span> et accédez à des programmes conçus pour booster votre carrière !</p>
@@ -13,34 +69,79 @@
 </header>
 
 <script>
-  // Détection de Safari
-  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  // Importation des fonctions depuis le fichier externe
+  import { initOutlineAnimation } from '../../scripts/outlineAnimation.js';
+  import { initHeroEffects } from '../../scripts/heroEffects.js';
+
+  // Initialiser l'animation du contour
+  initOutlineAnimation('.hero-image', '.svg-container', 'silhouette-path');
   
-  if (isSafari) {
-    // Assurez-vous que la vidéo MOV est chargée sur Safari
-    const video = document.querySelector('video');
-    if (video) {
-      const movSource = document.createElement('source');
-      movSource.src = '/assets/hero.mov';
-      movSource.type = 'video/quicktime';
-      
-      // Placer la source MOV en premier pour Safari
-      if (video.firstChild) {
-        video.insertBefore(movSource, video.firstChild);
-      } else {
-        video.appendChild(movSource);
-      }
-    }
-  }
+  // Initialiser tous les effets héro (parallaxe, tailles adaptatives, support Safari)
+  initHeroEffects();
 </script>
 
 <style>
     h1 {
         color: var(--secondary);
     }
-
-    .img-rounded {
-        border-top-left-radius: 1rem;
-        border-bottom-right-radius: 1rem;
+    
+    .svg-container {
+        z-index: 20;
+        object-position: right bottom;
+        transition: opacity 0.5s ease;
+        overflow: visible; /* S'assurer que le contenu n'est pas coupé même s'il dépasse */
+    }
+    
+    #silhouette-path {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.7));
+        transition: stroke-opacity 0.5s ease;
+    }
+    
+    /* Styles pour les taches de poudre */
+    .powder-spots {
+        z-index: 6;
+        pointer-events: none;
+    }
+    
+    .powder-spot {
+        position: absolute;
+        filter: blur(35px);
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        z-index: 6;
+        will-change: transform; /* Optimise les performances des animations */
+        transition: transform 0.2s cubic-bezier(0.33, 1, 0.68, 1);
+    }
+    
+    .blue-powder {
+        background: radial-gradient(circle at 50% 50%, rgba(65, 88, 208, 0.65) 0%, transparent 65%);
+    }
+    
+    .pink-powder {
+        background: radial-gradient(circle at 50% 50%, rgba(199, 81, 192, 0.65) 0%, transparent 65%);
+    }
+    
+    .yellow-powder {
+        background: radial-gradient(circle at 50% 50%, rgba(255, 203, 112, 0.65) 0%, transparent 65%);
+    }
+    
+    /* Augmenter le flou sur grands écrans */
+    @media (min-width: 1024px) {
+        .powder-spot {
+            filter: blur(45px);
+        }
+    }
+    
+    @media (min-width: 1280px) {
+        .powder-spot {
+            filter: blur(55px);
+        }
+    }
+    
+    @media (min-width: 1536px) {
+        .powder-spot {
+            filter: blur(65px);
+        }
     }
 </style>

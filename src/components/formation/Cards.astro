@@ -1,0 +1,218 @@
+---
+import { formations, type Formation } from "../../data/formations";
+
+const { formationKey } = Astro.props;
+
+const formation = formations[formationKey];
+---
+
+<section class="flex flex-col md:flex-row md:gap-8 md:px-32 2xl:px-72">
+    <div class="flex flex-wrap px-10 justify-center mt-10 gap-4 md:w-1/3 md:px-0">
+        <div class="card interactive-card w-full bg-white shadow-xl rounded-tr-3xl rounded-bl-3xl hover-card">
+            <div class="card-body">
+                <h2 class="font-bold text-xl md:text-2xl">Ce que vous&nbsp;<span class="gradient-text">apprendrez</span></h2>
+                <ul class="list-disc pl-4 pt-4 font-montserrat">
+                    {formation.learningCard.map((item) => (
+                        <li class="md:text-base">{item}</li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="flex flex-wrap px-10 justify-center mt-10 gap-4 md:w-1/3 md:px-0">
+        <div class="card interactive-card w-full bg-white shadow-xl rounded-tr-3xl rounded-bl-3xl">
+            <div class="card-body">
+                <h2 class="font-bold text-xl md:text-2xl"><span class="gradient-text">Prérequis </span>&nbsp;à la formation</h2>
+                <p class="md:text-base pt-4">{formation.prerequis[0].description}</p>
+                <p class="md:text-base">Niveau minimum exigé: {formation.prerequis[0].level}</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="flex flex-wrap px-10 justify-center mt-10 gap-4 md:w-1/3 md:px-0">
+        <div class="card interactive-card w-full bg-white shadow-xl rounded-tr-3xl rounded-bl-3xl">
+            <div class="card-body">
+                <h2 class="font-bold text-xl md:text-2xl"><span class="gradient-text">Durée</span>&nbsp;de la formation</h2>
+                <p class="md:text-base pt-4">{formation.formationDuration[0].description}</p>
+                <ul class="list-disc pl-4 font-montserrat">
+                    {formation.formationDuration[0].points.map((item) => (
+                        <li class="text-sm md:text-base">{item}</li>
+                    ))}
+                </ul>
+                <p class="text-sm md:text-base">{formation.formationDuration[0].lastPoint}</p>
+            </div>
+        </div>
+    </div>
+    </section>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const containers = document.querySelectorAll('[id^="image-container-"]');
+            
+            // Animation des taches au scroll
+            const handleScroll = () => {
+                // Déterminer la direction du scroll
+                const currentScrollY = window.scrollY;
+                const isScrollingDown = currentScrollY > (handleScroll.lastScrollY || 0);
+                handleScroll.lastScrollY = currentScrollY;
+                
+                // Calculer la vitesse de scroll (0-100)
+                const scrollSpeed = Math.min(100, Math.abs(currentScrollY - (handleScroll.previousY || 0)) * 5);
+                handleScroll.previousY = currentScrollY;
+                
+                // Adaptation de la durée de transition basée sur la vitesse de scroll (plus rapide si on scroll vite)
+                const transitionDuration = Math.max(0.05, 0.25 - (scrollSpeed / 500));
+                
+                containers.forEach(container => {
+                    // Vérifier si le container est visible
+                    const rect = container.getBoundingClientRect();
+                    if (rect.top > window.innerHeight || rect.bottom < 0) return;
+                    
+                    // Calculer la position relative dans la fenêtre (0 à 1)
+                    const viewportPosition = 1 - (rect.top / window.innerHeight);
+                    
+                    // Récupérer les spots dans l'ordre du DOM (bleu, rose, jaune)
+                    const blueSpot = container.querySelector('.blue-spot');
+                    const pinkSpot = container.querySelector('.pink-spot-left, .pink-left-spot');
+                    const yellowSpot = container.querySelector('.yellow-spot');
+                    
+                    // S'assurer que tous les spots existent
+                    if (!blueSpot || !pinkSpot || !yellowSpot) return;
+                    
+                    // Appliquer la transition à tous les spots
+                    [blueSpot, pinkSpot, yellowSpot].forEach(spot => {
+                        (spot as HTMLElement).style.transition = `all ${transitionDuration}s ease`;
+                    });
+                    
+                    // Définir les seuils d'activation
+                    const thresholds = {
+                        blue: 0.3,    // Le bleu s'allume à 30% de la fenêtre
+                        pink: 0.45,   // Le rose s'allume à 45% de la fenêtre
+                        yellow: 0.6   // Le jaune s'allume à 60% de la fenêtre
+                    };
+                    
+                    if (isScrollingDown) {
+                        // Mode descente : allumer dans l'ordre bleu → rose → jaune
+                        if (viewportPosition >= thresholds.blue) {
+                            blueSpot.classList.add('scroll-active');
+                        }
+                        
+                        if (viewportPosition >= thresholds.pink) {
+                            pinkSpot.classList.add('scroll-active');
+                        }
+                        
+                        if (viewportPosition >= thresholds.yellow) {
+                            yellowSpot.classList.add('scroll-active');
+                        }
+                    } else {
+                        // Mode remontée : éteindre dans l'ordre jaune → rose → bleu
+                        if (viewportPosition < thresholds.yellow) {
+                            yellowSpot.classList.remove('scroll-active');
+                        }
+                        
+                        if (viewportPosition < thresholds.pink) {
+                            pinkSpot.classList.remove('scroll-active');
+                        }
+                        
+                        if (viewportPosition < thresholds.blue) {
+                            blueSpot.classList.remove('scroll-active');
+                        }
+                    }
+                });
+            };
+            
+            // Variables statiques pour le suivi du scroll
+            handleScroll.lastScrollY = 0;
+            handleScroll.previousY = 0;
+            
+            // Gestion du scroll avec requestAnimationFrame pour fluidité
+            let isScrolling = false;
+            window.addEventListener('scroll', () => {
+                if (!isScrolling) {
+                    window.requestAnimationFrame(() => {
+                        handleScroll();
+                        isScrolling = false;
+                    });
+                    isScrolling = true;
+                }
+            });
+            
+            // Initialisation au chargement
+            handleScroll();
+        });
+
+        // Assurer que ce script est exécuté après le rendu complet de la page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Utiliser un sélecteur plus spécifique pour les cards
+            const interactiveCards = document.querySelectorAll('.interactive-card');
+            
+            interactiveCards.forEach(card => {
+                const htmlCard = card as HTMLElement;
+                
+                card.addEventListener('mousemove', (e) => {
+                    const mouseEvent = e as MouseEvent;
+                    const rect = card.getBoundingClientRect();
+                    const x = mouseEvent.clientX - rect.left;
+                    const y = mouseEvent.clientY - rect.top;
+                    
+                    // Calculer la position relative (de -0.5 à 0.5)
+                    const xRatio = (x / rect.width) - 0.5;
+                    const yRatio = (y / rect.height) - 0.5;
+                    
+                    // Effet plus subtil avec des déplacements plus petits
+                    htmlCard.style.boxShadow = `
+                        ${xRatio * 12}px ${yRatio * 12}px 15px rgba(65, 88, 208, 1),
+                        ${xRatio * 8}px ${yRatio * 8}px 12px rgba(199, 81, 192, 1),
+                        ${xRatio * 6}px ${yRatio * 6}px 10px rgba(255, 203, 112, 1)
+                    `;
+                    
+                    // Légère inclinaison de la carte
+                    htmlCard.style.transform = `translateY(-4px) rotateX(${yRatio * 3}deg) rotateY(${-xRatio * 3}deg)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    htmlCard.style.boxShadow = '';
+                    htmlCard.style.transform = '';
+                    // Transition plus douce au départ
+                    htmlCard.style.transition = 'transform 0.5s ease-out, box-shadow 0.5s ease-out';
+                    // Réinitialiser la transition après l'animation
+                    setTimeout(() => {
+                        htmlCard.style.transition = '';
+                    }, 500);
+                });
+            });
+        });
+    </script>
+        
+    <style>
+        .card {
+            transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+        }
+    
+        .card-body h2 {
+            min-height: 3rem;
+            display: flex;
+            align-items: center;
+            font-size: clamp(1.125rem, 1.5vw, 1.5rem);
+            line-height: 1.2;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
+    
+        .gradient-text {
+            background-image: linear-gradient(
+                45deg,
+                rgba(65, 88, 208, 1) 0%,
+                rgba(199, 81, 192, 1) 50%,
+                rgba(255, 203, 112, 1) 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+    
+        .hover-card:hover {
+            /* Ces styles seront maintenant appliqués via JavaScript */
+        }
+    </style>

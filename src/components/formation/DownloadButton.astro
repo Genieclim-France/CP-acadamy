@@ -4,26 +4,37 @@ interface Props {
   fileName: string;
   label?: string;
   class?: string;
+  isCard?: boolean;
+  formationLink?: string;
 }
 
-const { filePath, fileName, label = "Télécharger la brochure"} = Astro.props;
+const { filePath, fileName, label = "Télécharger le programme", isCard = false, formationLink = "/" } = Astro.props;
 ---
-<div class="flex justify-center gap-4 mt-6 md:mt-10">
-  <button class="btn-rdv font-montserrat font-semibold rounded-bl-xl rounded-tr-xl text-sm relative overflow-hidden transition-all duration-300 py-3 md:px-4">
-    <a href="/#contact" class="relative z-10">Prendre <span class="text-nowrap">rendez-vous</span></a>
-    <div class="glow-effect"></div>
-  </button>
-  <button
-    onclick={`window.open('${filePath}', '_blank')`}
-    class="btn-download w-1/2 inline-flex items-center text-sm px-2 py-3 border font-montserrat font-semibold rounded-bl-xl rounded-tr-xl transition-all md:w-fit md:px-4 md:gap-2"
+<div class={`flex ${isCard ? 'flex-col' : 'flex-row'} justify-center ${isCard ? 'gap-2' : 'gap-4'} ${isCard ? 'mt-4' : 'mt-6 md:mt-10'}`}>
+  {isCard ? (
+    <a href={formationLink} class="btn-rdv btn-card w-full font-montserrat font-semibold rounded-bl-xl rounded-tr-xl text-sm relative overflow-hidden transition-all duration-300 py-3 md:px-4 text-center">
+      <span class="relative z-10">Voir la formation</span>
+      <div class="glow-effect"></div>
+    </a>
+  ) : (
+    <a href="/#contact" class="btn-rdv font-montserrat font-semibold rounded-bl-xl rounded-tr-xl text-sm relative overflow-hidden transition-all duration-300 py-3 md:px-4 text-center">
+      <span class="relative z-10">Prendre <span class="text-nowrap">rendez-vous</span></span>
+      <div class="glow-effect"></div>
+    </a>
+  )}
+  
+  <a
+    href={filePath}
+    target="_blank"
+    class={`btn-download ${isCard ? 'btn-card w-full' : 'w-1/2 md:w-fit'} inline-flex items-center justify-center text-sm px-2 py-3 border font-montserrat font-semibold rounded-bl-xl rounded-tr-xl transition-all md:px-4 md:gap-2`}
     aria-label={`Télécharger ${fileName}`}
   >
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
     </svg>
-    {label}
+    <span>{label}</span>
     <div class="glow-effect"></div>
-  </button>
+  </a>
 </div>
 
 <style>
@@ -34,6 +45,11 @@ const { filePath, fileName, label = "Télécharger la brochure"} = Astro.props;
     border: 1px solid;
     overflow: visible;
     z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Supprime le soulignement des liens */
+    cursor: pointer;
   }
   
   .btn-rdv {
@@ -64,14 +80,25 @@ const { filePath, fileName, label = "Télécharger la brochure"} = Astro.props;
   }
   
   /* Effet au survol pour les deux boutons */
-  .btn-rdv:hover, .btn-download:hover {
+  .btn-rdv:hover:not(.btn-card), .btn-download:hover:not(.btn-card) {
     border-color: transparent;
     color: white;
   }
   
-  .btn-rdv:hover .glow-effect, .btn-download:hover .glow-effect {
+  .btn-rdv:hover:not(.btn-card) .glow-effect, .btn-download:hover:not(.btn-card) .glow-effect {
     opacity: 1;
     animation: glowPulse 2s infinite;
+  }
+  
+  /* Style spécifique pour les boutons dans les cartes */
+  .btn-card:hover .glow-effect {
+    opacity: 1;
+    animation: none;
+  }
+  
+  .btn-card:hover {
+    border-color: transparent;
+    color: white;
   }
   
   /* Animation de pulsation pour l'effet lumineux */
