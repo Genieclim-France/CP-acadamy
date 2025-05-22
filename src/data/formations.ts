@@ -214,10 +214,10 @@ export const formations: Formations = {
     formationDuration: [
       {
         title: "Durée de la formation",
-        description: "La formation se déroule sur une durée totale de 2 jours.",
+        description: "La formation se déroule sur une durée totale de 3 jours.",
         points: [
           "Partie 1 - Création d’entreprise, communication et management : 1 Jour",
-          "Partie 2 - Prothésiste ongulaire : 1 Jour",
+          "Partie 2 - Prothésiste ongulaire : 2 Jour",
         ],
         lastPoint:
           "Les horaires de formation sont fixés de 9h00 à 12h30 et de 13h30 à 17h00.",
@@ -228,8 +228,8 @@ export const formations: Formations = {
       fileName: "programme-formation-prothesiste-ongulaire.pdf",
     },
     image: "/assets/ongle.png",
-    duration: "2 jours",
-    price: "1600€",
+    duration: "3 jours",
+    price: "2400€",
     thumbnail: "/assets/thumbnails-ongle.png",
     cards:
       "Perfectionnez l'art de la prothésie ongulaire grâce à notre formation spécialisée. Développez votre expertise en techniques modernes pour créer des ongles esthétiques, résistants et personnalisés qui raviront votre clientèle.",
