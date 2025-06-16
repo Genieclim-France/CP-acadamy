@@ -1,0 +1,391 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Règlement Intérieur - CP Academy">
+  <main class="container mx-auto px-4 py-8 max-w-4xl mt-52">
+    <!-- Effet de particules colorées -->
+    <div class="color-spots">
+      <div class="color-spot blue-spot"></div>
+      <div class="color-spot pink-spot"></div>
+      <div class="color-spot yellow-spot"></div>
+    </div>
+
+    <div class="bg-white/10 backdrop-blur-lg rounded-lg p-8 shadow-xl relative overflow-hidden">
+      <!-- Effet de bordure animée -->
+      <div class="gradient-border"></div>
+
+      <h1 class="text-4xl font-bold text-white mb-8 gradient-text relative z-10">
+        Règlement Intérieur de l'organisme de formation
+      </h1>
+
+      <div class="prose prose-lg max-w-none relative z-10">
+        <!-- Table des matières améliorée -->
+        <nav class="mb-12 p-6 bg-gradient-to-r from-[#4158D0]/20 via-[#C751C0]/20 to-[#FFCB70]/20 rounded-lg border border-white/10 hover:shadow-lg transition-all duration-300">
+          <h2 class="text-xl font-semibold mb-4 text-white flex items-center gap-2">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            Table des matières
+          </h2>
+          <ul class="space-y-3">
+            <li>
+              <a href="#preambule" class="nav-link group flex items-center gap-2">
+                <span class="w-2 h-2 bg-[#4158D0] rounded-full group-hover:scale-150 transition-transform"></span>
+                <span class="hover:text-[#4158D0] transition-colors">PRÉAMBULE</span>
+              </a>
+            </li>
+            <li>
+              <a href="#section1" class="nav-link group flex items-center gap-2">
+                <span class="w-2 h-2 bg-[#C751C0] rounded-full group-hover:scale-150 transition-transform"></span>
+                <span class="hover:text-[#C751C0] transition-colors">SECTION 1 : RÈGLES D'HYGIÈNE ET DE SÉCURITÉ</span>
+              </a>
+            </li>
+            <li>
+              <a href="#section2" class="nav-link group flex items-center gap-2">
+                <span class="w-2 h-2 bg-[#FFCB70] rounded-full group-hover:scale-150 transition-transform"></span>
+                <span class="hover:text-[#FFCB70] transition-colors">SECTION 2 : DISCIPLINE GÉNÉRALE</span>
+              </a>
+            </li>
+            <li>
+              <a href="#section3" class="nav-link group flex items-center gap-2">
+                <span class="w-2 h-2 bg-[#4158D0] rounded-full group-hover:scale-150 transition-transform"></span>
+                <span class="hover:text-[#4158D0] transition-colors">SECTION 3 : MESURES DISCIPLINAIRES</span>
+              </a>
+            </li>
+            <li>
+              <a href="#section4" class="nav-link group flex items-center gap-2">
+                <span class="w-2 h-2 bg-[#C751C0] rounded-full group-hover:scale-150 transition-transform"></span>
+                <span class="hover:text-[#C751C0] transition-colors">SECTION 4 : PROCÉDURE DE RÉCLAMATION</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Introduction avec icône -->
+        <div class="mb-12 p-6 bg-gradient-to-r from-[#4158D0]/10 via-[#C751C0]/10 to-[#FFCB70]/10 rounded-lg border border-white/10 hover:shadow-lg transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <svg class="w-6 h-6 text-[#4158D0]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h3 class="text-lg font-semibold text-white">Introduction</h3>
+          </div>
+          <p class="text-sm mb-6">
+            Le présent Règlement Intérieur est actualisé en fonction de l'évolution de la législation, et notamment des dispositions du Décret 2019-1143 du 07 novembre 2019 relatif aux dispositions spécifiques applicables aux centres de formation d'apprentis et aux obligations des organismes prestataires d'actions de développement des compétences.
+          </p>
+          <p class="text-sm mb-6">
+            Il obéit aux dispositions des articles L.6352-3 et 5 et R.6352-1 à 15 du Code du Travail. Les sanctions pénales sont exposées en articles L.6355-8 et 9 du Code du Travail.
+          </p>
+        </div>
+
+        <!-- Sections avec animations -->
+        <section id="preambule" class="mb-12 p-6 bg-gradient-to-r from-[#4158D0]/10 via-[#C751C0]/10 to-[#FFCB70]/10 rounded-lg border border-white/10 hover:shadow-lg transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <svg class="w-6 h-6 text-[#4158D0]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h2 class="text-2xl font-semibold text-white">PRÉAMBULE</h2>
+          </div>
+          <article class="mb-6">
+            <h3 class="text-xl font-semibold mb-3">Article 1 – Objet et champ d'application du règlement</h3>
+            <p>Le présent règlement s'applique à toutes les personnes participantes à une action de formation organisée par l'organisme. Un exemplaire est remis à chaque stagiaire.</p>
+            <p>Le règlement définit les règles d'hygiène et de sécurité, les règles générales et permanentes relatives à la discipline ainsi que la nature et l'échelle des sanctions pouvant être prises vis-à-vis des stagiaires qui y contreviennent et les garanties procédurales applicables lorsqu'une sanction est envisagée.</p>
+            <p>Toute personne doit respecter les termes du présent règlement durant toute la durée de l'action de formation.</p>
+          </article>
+        </section>
+
+        <section id="section1" class="mb-12 p-6 bg-gradient-to-r from-[#4158D0]/10 via-[#C751C0]/10 to-[#FFCB70]/10 rounded-lg border border-white/10 hover:shadow-lg transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <svg class="w-6 h-6 text-[#4158D0]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h2 class="text-2xl font-semibold text-white">SECTION 1 : RÈGLES D'HYGIÈNE ET DE SÉCURITÉ</h2>
+          </div>
+          
+          <article class="mb-6">
+            <h3 class="text-xl font-semibold mb-3">Article 2 – Principes généraux</h3>
+            <p>La prévention des risques d'accidents et de maladies est impérative et exige de chacun le respect :</p>
+            <ul class="list-disc pl-6 mb-4">
+              <li>des prescriptions applicables en matière d'hygiène et de sécurité sur les lieux de formation ;</li>
+              <li>de toute consigne imposée soit par la direction de l'organisme de formation ou le formateur s'agissant notamment de l'usage des matériels mis à disposition.</li>
+            </ul>
+            <p>Chaque stagiaire doit ainsi veiller à sa sécurité personnelle et à celle des autres en respectant, en fonction de sa formation, les consignes générales et particulières en matière d'hygiène et de sécurité.</p>
+            <p>S'il constate un dysfonctionnement du système de sécurité, il en avertit immédiatement la direction de l'organisme de formation.</p>
+            <p>Le non-respect de ces consignes expose la personne à des sanctions disciplinaires.</p>
+          </article>
+
+          <article class="mb-6">
+            <h3 class="text-xl font-semibold mb-3">Article 3 – Consignes d'incendie</h3>
+            <p>Les consignes d'incendie et notamment un plan de localisation des extincteurs et des issues de secours sont affichés dans les locaux de l'organisme de formation à l'entrée des locaux. Le stagiaire doit en prendre connaissance.</p>
+            <p>En cas d'alerte, le stagiaire doit cesser toute activité de formation et suivre dans le calme les instructions du représentant habilité de l'organisme de formation ou des services de secours.</p>
+            <p>Tout stagiaire témoin d'un début d'incendie doit immédiatement appeler les secours en composant le 18 à partir d'un téléphone fixe ou le 112 à partir d'un téléphone portable et alerter un représentant de l'organisme de formation.</p>
+          </article>
+
+          <article class="mb-6">
+            <h3 class="text-xl font-semibold mb-3">Article 4 – Boissons alcoolisées et drogues</h3>
+            <p>L'introduction ou la consommation de drogue ou de boissons alcoolisées dans les locaux est formellement interdite. Il est interdit aux stagiaires de pénétrer ou de séjourner en état d'ivresse ou sous l'emprise de drogue dans l'organisme de formation.</p>
+          </article>
+
+          <article class="mb-6">
+            <h3 class="text-xl font-semibold mb-3">Article 5 – Interdiction de fumer</h3>
+            <p>Il est formellement interdit de fumer dans les salles de formation et plus généralement dans l'enceinte de l'organisme de formation.</p>
+          </article>
+
+          <article class="mb-6">
+            <h3 class="text-xl font-semibold mb-3">Article 6 - Accident</h3>
+            <p>Le stagiaire victime d'un accident - survenu pendant la formation ou pendant le temps de trajet entre le lieu de formation et son domicile ou son lieu de travail – ou le témoin de cet accident avertit immédiatement la direction de l'organisme de formation.</p>
+            <p>Le responsable de l'organisme de formation entreprend les démarches appropriées en matière de soins et réalise la déclaration auprès de la caisse de Sécurité sociale compétente.</p>
+          </article>
+        </section>
+
+        <section id="section2" class="mb-12 p-6 bg-gradient-to-r from-[#4158D0]/10 via-[#C751C0]/10 to-[#FFCB70]/10 rounded-lg border border-white/10 hover:shadow-lg transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <svg class="w-6 h-6 text-[#4158D0]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h2 class="text-2xl font-semibold text-white">SECTION 2 : DISCIPLINE GÉNÉRALE</h2>
+          </div>
+
+          <article class="mb-6">
+            <h3 class="text-xl font-semibold mb-3">Article 7 - Assiduité du stagiaire en formation</h3>
+            
+            <h4 class="text-lg font-semibold mb-2">Article 7.1. - Horaires de formation</h4>
+            <p>Les stagiaires doivent se conformer aux horaires fixés et communiqués au préalable par l'organisme de formation. Le non-respect de ces horaires peut entraîner des sanctions.</p>
+            <p>Sauf circonstances exceptionnelles, les stagiaires ne peuvent s'absenter pendant les heures de stage.</p>
+
+            <h4 class="text-lg font-semibold mb-2">Article 7.2. - Absences, retards ou départs anticipés</h4>
+            <p>En cas d'absence, de retard ou de départ avant l'horaire prévu, les stagiaires doivent avertir l'organisme de formation et s'en justifier.</p>
+            <p>L'organisme de formation informe immédiatement le financeur (employeur, administration, Fongecif, Région, Pôle emploi, …) de cet événement.</p>
+            <p>Tout événement non justifié par des circonstances particulières constitue une faute passible de sanctions disciplinaires.</p>
+            <p>De plus, conformément à l'article R6341-45 du Code du travail, le stagiaire – dont la rémunération est prise en charge par les pouvoirs publics – s'expose à une retenue sur sa rémunération de stage proportionnelle à la durée de l'absence.</p>
+
+            <h4 class="text-lg font-semibold mb-2">Article 7.3. - Formalisme attaché au suivi de la formation</h4>
+            <p>Le stagiaire est tenu de renseigner la feuille d'émargement au fur et à mesure du déroulement de l'action. Il peut lui être demandé de réaliser un bilan de la formation.</p>
+            <p>A l'issue de l'action de formation, il se voit remettre une attestation de fin de formation et une attestation de présence au stage à transmettre, selon le cas, à son employeur/administration ou à l'organisme qui finance l'action.</p>
+            <p>Le stagiaire remet, dans les meilleurs délais, à l'organisme de formation les documents qu'il doit renseigner en tant que prestataire (demande de rémunération ou de prise en charges des frais liés à la formation ; attestations d'inscription ou d'entrée en stage…).</p>
+          </article>
+
+          <article class="mb-6">
+            <h3 class="text-xl font-semibold mb-3">Article 8 - Accès aux locaux de formation</h3>
+            <p>Sauf autorisation expresse de la direction de l'organisme de formation, le stagiaire ne peut :</p>
+            <ul class="list-disc pl-6 mb-4">
+              <li>entrer ou demeurer dans les locaux de formation à d'autres fins que la formation ;</li>
+              <li>y introduire, faire introduire ou faciliter l'introduction de personnes étrangères à l'organisme ;</li>
+              <li>procéder, dans ces derniers, à la vente de biens ou de services.</li>
+            </ul>
+          </article>
+
+          <article class="mb-6">
+            <h3 class="text-xl font-semibold mb-3">Article 9 - Tenue</h3>
+            <p>Le stagiaire est invité à se présenter à l'organisme en tenue vestimentaire correcte.</p>
+          </article>
+
+          <article class="mb-6">
+            <h3 class="text-xl font-semibold mb-3">Article 10 - Comportement</h3>
+            <p>Il est demandé à tout stagiaire d'avoir un comportement garantissant le respect des règles élémentaires de savoir vivre, de savoir être en collectivité et le bon déroulement des formations.</p>
+          </article>
+
+          <article class="mb-6">
+            <h3 class="text-xl font-semibold mb-3">Article 11 - Utilisation du matériel</h3>
+            <p>Sauf autorisation particulière de la direction de l'organisme de formation, l'usage du matériel de formation se fait sur les lieux de formation et est exclusivement réservé à l'activité de formation. L'utilisation du matériel à des fins personnelles est interdite.</p>
+            <p>Le stagiaire est tenu de conserver en bon état le matériel qui lui est confié pour la formation. Il doit en faire un usage conforme à son objet et selon les règles délivrées par le formateur.</p>
+            <p>Le stagiaire signale immédiatement au formateur toute anomalie du matériel.</p>
+          </article>
+        </section>
+
+        <section id="section3" class="mb-12 p-6 bg-gradient-to-r from-[#4158D0]/10 via-[#C751C0]/10 to-[#FFCB70]/10 rounded-lg border border-white/10 hover:shadow-lg transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <svg class="w-6 h-6 text-[#4158D0]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h2 class="text-2xl font-semibold text-white">SECTION 3 : MESURES DISCIPLINAIRES</h2>
+          </div>
+
+          <article class="mb-6">
+            <h3 class="text-xl font-semibold mb-3">Article 12 - Sanctions disciplinaires</h3>
+            <p>Tout manquement du stagiaire à l'une des prescriptions du présent règlement intérieur pourra faire l'objet d'une sanction prononcée par le responsable de l'organisme de formation ou son représentant.</p>
+            <p>Tout agissement considéré comme fautif pourra, en fonction de sa nature et de sa gravité, faire l'objet de l'une ou l'autre des sanctions suivantes :</p>
+            <ul class="list-disc pl-6 mb-4">
+              <li>rappel à l'ordre ;</li>
+              <li>blâme ;</li>
+              <li>avertissement écrit par le directeur de l'organisme de formation ou par son représentant ;</li>
+              <li>exclusion temporaire de la formation ;</li>
+              <li>exclusion définitive de la formation.</li>
+            </ul>
+            <p>Les amendes ou autres sanctions pécuniaires sont interdites.</p>
+            <p>Le responsable de l'organisme de formation ou son représentant informe de la sanction prise :</p>
+            <ul class="list-disc pl-6 mb-4">
+              <li>l'employeur du salarié stagiaire ou l'administration de l'agent stagiaire (NDLR : uniquement quand la formation se réalise sur commande de l'employeur ou de l'administration) ;</li>
+              <li>et/ou le financeur du stage.</li>
+            </ul>
+          </article>
+
+          <article class="mb-6">
+            <h3 class="text-xl font-semibold mb-3">Article 13 - Garanties disciplinaires</h3>
+            
+            <h4 class="text-lg font-semibold mb-2">Article 13.1. – Information du stagiaire</h4>
+            <p>Aucune sanction ne peut être infligée au stagiaire sans que celui-ci ait été informé au préalable des griefs retenus contre lui.</p>
+            <p>Toutefois, lorsqu'un agissement, considéré comme fautif, a rendu indispensable une mesure conservatoire d'exclusion temporaire à effet immédiat, aucune sanction définitive relative à cet agissement ne peut être prise sans que le stagiaire n'ait été au préalable informé des griefs retenus contre lui et éventuellement, que la procédure ci-après décrite ait été respectée.</p>
+
+            <h4 class="text-lg font-semibold mb-2">Article 13.2. – Convocation pour un entretien</h4>
+            <p>Lorsque le directeur de l'organisme de formation ou son représentant envisage de prendre une sanction, il est procédé de la manière suivante :</p>
+            <ul class="list-disc pl-6 mb-4">
+              <li>il convoque le stagiaire – par lettre recommandée avec demande d'accusé de réception ou remise à l'intéressé contre décharge – en lui indiquant l'objet de la convocation ;</li>
+              <li>la convocation indique également la date, l'heure et le lieu de l'entretien ainsi que la possibilité de se faire assister par une personne de son choix stagiaire ou salarié de l'organisme de formation.</li>
+            </ul>
+
+            <h4 class="text-lg font-semibold mb-2">Article 13.3. – Assistance possible pendant l'entretien</h4>
+            <p>Au cours de l'entretien, le stagiaire peut se faire assister par une personne de son choix, notamment le délégué du stage.</p>
+            <p>Le directeur ou son représentant indique le motif de la sanction envisagée et recueille les explications du stagiaire.</p>
+
+            <h4 class="text-lg font-semibold mb-2">Article 13.4. – Prononcé de la sanction</h4>
+            <p>La sanction ne peut intervenir moins d'un jour franc ni plus de quinze jours après l'entretien.</p>
+            <p>La sanction fait l'objet d'une notification écrite et motivée au stagiaire sous forme d'une lettre recommandée ou remise contre décharge.</p>
+          </article>
+        </section>
+
+        <section id="section4" class="mb-12 p-6 bg-gradient-to-r from-[#4158D0]/10 via-[#C751C0]/10 to-[#FFCB70]/10 rounded-lg border border-white/10 hover:shadow-lg transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <svg class="w-6 h-6 text-[#4158D0]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h2 class="text-2xl font-semibold text-white">SECTION 4 : PROCÉDURE DE RÉCLAMATION</h2>
+          </div>
+          <p>Les différentes parties prenantes à l'action de formation (clients, bénéficiaires, formateurs) ont la possibilité à tout moment de faire une réclamation relative aux offres et prestations de formations de l'organisme de formation de CP ACADEMY ou de faire remonter auprès du même organisme tout incident ou dysfonctionnement constaté lors de la réalisation de la prestation.</p>
+          <p>Dans le cadre de la procédure de gestion des événements indésirables de l'organisme de formation ; les parties prenantes peuvent formuler leur réclamation :</p>
+          <ul class="list-disc pl-6 mb-4">
+            <li>oralement par téléphone ou en face-à-face auprès de l'assistante de formation ou de la responsable en charge de la formation(dans les deux cas, la réclamation sera enregistrée dans un formulaire de déclaration d'un évènement indésirable).</li>
+            <li>ou par courrier postal adressé à :<br>
+            CP ACADEMY - Camille PERNOT, responsable pédagogique – 20 rue Jean Mermoz – 33185 LE HAILLAN</li>
+            <li>ou par courrier électronique à : <a href="mailto:contact@cpacademy.com" class="text-blue-600 hover:underline">contact@cpacademy.com</a></li>
+          </ul>
+          <p>Chaque réclamation sera étudiée et une réponse sera apportée au déclarant dans les meilleurs délais.</p>
+        </section>
+
+        <footer class="mt-12 pt-6 border-t border-white/20">
+          <p class="text-sm font-semibold mt-2 text-white">L'organisme de formation<br>CP ACADEMY</p>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Bouton retour en haut -->
+    <button 
+      id="backToTop"
+      class="fixed bottom-8 right-8 bg-gradient-to-r from-[#4158D0] via-[#C751C0] to-[#FFCB70] text-white p-3 rounded-full shadow-lg hover:opacity-90 transition-opacity opacity-0 invisible"
+      aria-label="Retour en haut"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+      </svg>
+    </button>
+  </main>
+</Layout>
+
+<style>
+  .gradient-text {
+    background-image: linear-gradient(
+      90deg,
+      rgba(65, 88, 208, 1) 0%,
+      rgba(199, 81, 192, 1) 50%,
+      rgba(255, 203, 112, 1) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .prose {
+    color: #fff;
+  }
+  
+  .prose h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 2rem 0 1rem;
+  }
+  
+  .prose h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.75rem;
+  }
+  
+  .prose h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 1.25rem 0 0.5rem;
+  }
+  
+  .prose p {
+    margin-bottom: 1rem;
+  }
+  
+  .prose ul {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+  }
+  
+  .prose li {
+    margin-bottom: 0.5rem;
+  }
+
+  .prose a {
+    color: #60a5fa;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .prose a:hover {
+    color: #93c5fd;
+    text-decoration: underline;
+  }
+
+  /* Animation pour le bouton retour en haut */
+  #backToTop.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Styles pour les sections */
+  section {
+    transition: transform 0.2s;
+  }
+
+  section:hover {
+    transform: translateY(-2px);
+  }
+</style>
+
+<script>
+  const backToTopButton = document.getElementById('backToTop');
+  
+  if (backToTopButton) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
+      }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
+  // Animation douce pour les liens d'ancrage
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(this: HTMLAnchorElement, e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href') || '');
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+</script>
