@@ -74,10 +74,10 @@
                   </details>
                 </li>
                 <li class="pl-3 text-gray-300/70 cursor-not-allowed">
-                  Relation et expérience client (a venir)
+                  Relation et expérience client (à venir)
                 </li>
                 <li class="pl-3 text-gray-300/70 cursor-not-allowed">
-                  Suivi et Satisfaction client (a venir)
+                  Suivi et Satisfaction client (à venir)
                 </li>
               </ul>
             </details>
@@ -117,32 +117,38 @@
             <li><a href="/">Accueil</a></li>
             <li class="dropdown-mobile">
               <details>
-                <summary class="text-3xl font-semibold">Nos formations</summary>
-                <ul class="menu menu-vertical gap-6 pl-6 text-2xl">
-                  <li class="dropdown-submenu">
+                <summary>Nos formations</summary>
+                <ul class="menu menu-vertical gap-6 text-2xl">
+                  <li class="dropdown-submenu pl-0">
                     <details>
-                      <summary class="text-2xl font-semibold"
+                      <summary class="text-sm"
                         >Création / Développement d'entreprise &amp; Techniques
                         professionnelles</summary
                       >
                       <ul class="menu menu-vertical gap-4 pl-4 text-xl">
                         <li class="mt-4">
-                          <a class="py-2" href="/browlift"
+                          <a class="py-2 text-sm" href="/browlift"
                             >Browlift &amp; Rehaussement de cils</a
                           >
                         </li>
                         <li>
-                          <a class="py-2" href="/botox"
+                          <a class="py-2 text-sm" href="/botox"
                             >Soin capillaire au Botox</a
                           >
                         </li>
                         <li>
-                          <a class="py-2" href="/prothesiste"
+                          <a class="py-2 text-sm" href="/prothesiste"
                             >Prothésiste ongulaire</a
                           >
                         </li>
                       </ul>
                     </details>
+                  </li>
+                  <li class="pl-3 text-sm text-gray-300/90 cursor-not-allowed">
+                    Relation et expérience client (à venir)
+                  </li>
+                  <li class="pl-3 text-sm text-gray-300/90 cursor-not-allowed">
+                    Suivi et Satisfaction client (à venir)
                   </li>
                 </ul>
               </details>
@@ -363,8 +369,17 @@
     list-style: none;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 0.7rem;
     width: 100%;
+    padding-right: 1.5rem;
+    min-height: 2rem;
+  }
+
+  .dropdown-mobile summary::after {
+    flex-shrink: 0;
+    width: 0.5rem;
+    height: 0.5rem;
   }
 
   .dropdown-mobile details[open] {
