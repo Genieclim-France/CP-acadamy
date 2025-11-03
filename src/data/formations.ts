@@ -192,7 +192,7 @@ export const formations: Formations = {
     secondPart: {
       title: "Partie 2 – Techniques du Prothésiste",
       description: [
-        "La seconde partie est dédiée à l’acquisition des savoir-faire techniques liés à la prothésie ongulaire.",
+        "La seconde partie est dédiée à l'acquisition des savoir-faire techniques liés à la prothésie ongulaire.",
         "Cette formation vise à rendre le stagiaire opérationnel, autonome et professionnellement crédible à la fois dans la gestion de son activité et la réalisation des prestations proposées.",
       ],
     },
@@ -201,13 +201,13 @@ export const formations: Formations = {
       "Protocoles du Prothésiste étape par étape",
       "Choix des produits et matériel professionnel",
       "Application du Prothésiste",
-      "Conseils d’entretien pour une tenue optimale",
+      "Conseils d'entretien pour une tenue optimale",
       "Fidélisation et satisfaction client",
     ],
     prerequis: [
       {
         description:
-          "Un entretien ou un test de positionnement peut être proposé afin de vérifier l’adéquation entre le profil du bénéficiaire et les exigences de la formation. La personne concernée doit être majeur à l’entrée de la formation.",
+          "Un entretien ou un test de positionnement peut être proposé afin de vérifier l'adéquation entre le profil du bénéficiaire et les exigences de la formation. La personne concernée doit être majeur à l'entrée de la formation.",
         level: "Aucun",
       },
     ],
@@ -216,7 +216,7 @@ export const formations: Formations = {
         title: "Durée de la formation",
         description: "La formation se déroule sur une durée totale de 3 jours.",
         points: [
-          "Partie 1 - Création d’entreprise, communication et management : 1 Jour",
+          "Partie 1 - Création d'entreprise, communication et management : 1 Jour",
           "Partie 2 - Prothésiste ongulaire : 2 Jour",
         ],
         lastPoint:
@@ -233,5 +233,70 @@ export const formations: Formations = {
     thumbnail: "/assets/thumbnails-ongle.png",
     cards:
       "Perfectionnez l'art de la prothésie ongulaire grâce à notre formation spécialisée. Développez votre expertise en techniques modernes pour créer des ongles esthétiques, résistants et personnalisés qui raviront votre clientèle.",
+  },
+  "relation-client": {
+    surTitle: "Préparation au bloc RNCP36331BC03",
+    subTitle: "",
+    title: "Relation et expérience client",
+    description: [
+      "Cette formation intensive sur deux jours permet de développer les compétences clés en relation et expérience client dans les métiers de l'esthétique, de la cosmétique et de la parfumerie.",
+    ],
+    firstPart: {
+      title: "Partie 1 – Accueil, communication et conseil client",
+      description: [
+        "Cette première partie couvre trois modules essentiels pour maîtriser l'accueil et la relation client professionnelle.",
+        "À l'issue de cette partie, le stagiaire sera capable de :",
+      ],
+      list: [
+        "Accueillir et prendre en charge la clientèle selon les codes professionnels de l'esthétique;",
+        "Identifier les besoins, attentes et motivations du client;",
+        "Adapter la communication verbale et non verbale selon les profils de clients;",
+        "Conseiller et vendre des produits ou prestations adaptés.",
+      ],
+    },
+    secondPart: {
+      title: "Partie 2 – Fidélisation et gestion des situations difficiles",
+      description: [
+        "La seconde partie est dédiée à la fidélisation de la clientèle et à la gestion professionnelle des situations délicates.",
+        "Cette formation vous permettra de promouvoir les services, fidéliser la clientèle, gérer la satisfaction et les éventuelles réclamations avec calme et professionnalisme.",
+      ],
+    },
+    secondSectionTitle: "Maîtrisez l'art de la relation client",
+    learningCard: [
+      "Accueil professionnel selon les codes de l'esthétique",
+      "Identification des besoins et motivations clients",
+      "Communication adaptée à chaque profil client",
+      "Techniques de conseil et de vente efficaces",
+      "Gestion des situations difficiles et fidélisation",
+    ],
+    prerequis: [
+      {
+        description:
+          "Maîtriser les bases de la communication orale en français. Avoir un intérêt ou une première expérience dans le secteur de la beauté. Un entretien ou un test de positionnement peut être proposé afin de vérifier l'adéquation entre le profil du bénéficiaire et les exigences de la formation. La personne concernée doit être majeure à l'entrée de la formation.",
+        level: "Débutant accepté",
+      },
+    ],
+    formationDuration: [
+      {
+        title: "Durée de la formation",
+        description: "La formation se déroule sur une durée totale de 2 jours.",
+        points: [
+          "Partie 1 - Accueil, communication et conseil client (Modules 1, 2 et 3)",
+          "Partie 2 - Fidélisation et gestion des situations difficiles (Modules 4 et 5)",
+        ],
+        lastPoint:
+          "Les horaires de formation sont fixés de 9h00 à 12h00 et de 13h00 à 18h00.",
+      },
+    ],
+    brochure: {
+      path: "/brochures/programme-formation-relation-client.pdf",
+      fileName: "programme-formation-relation-client.pdf",
+    },
+    image: "/assets/relation-client.jpg",
+    thumbnail: "/assets/thumbnails-ongle.png",
+    duration: "2 jours",
+    price: "950€",
+    cards:
+      "Développez vos compétences en relation client dans l'esthétique, la cosmétique et la parfumerie. Formation intensive préparant au bloc RNCP36331BC03 du Bac Pro, alliant théorie et pratique avec jeux de rôle et mises en situation réelles.",
   },
 };
