@@ -40,12 +40,15 @@
         <ul class="menu menu-horizontal gap-8 text-white font-bold">
           <!-- Navbar menu content here -->
           <li><a href="/">Accueil</a></li>
-          <li class="dropdown-menu hover:bg-black/20">
-            <details>
-              <summary class="font-semibold text-white">Nos formations</summary>
-              <ul
-                class="rounded-t-none bg-black/90 w-80 rounded-b-xl space-y-3 shadow-lg"
-              >
+          <li class="dropdown dropdown-menu">
+            <div tabindex="0" role="button" class="font-semibold text-white cursor-pointer hover:opacity-80 flex items-center gap-1">
+              Nos formations
+              <svg class="dropdown-arrow w-3 h-3 fill-current transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+            </div>
+            <ul
+              tabindex="0"
+              class="dropdown-content menu rounded-t-none bg-black/90 w-80 rounded-b-xl space-y-3 shadow-lg z-50 p-4 mt-2 left-0"
+            >
                 <li class="dropdown-submenu">
                   <details>
                     <summary class="text-sm font-semibold text-white/90"
@@ -179,46 +182,6 @@
     mobileLogo.style.display = "none";
   }
 
-  // Fix pour le dropdown en production
-  (function() {
-    function initDropdown() {
-      const mainDropdown = document.querySelector('.dropdown-menu > details');
-      if (!mainDropdown) return;
-      
-      const summary = mainDropdown.querySelector('summary');
-      if (!summary) return;
-      
-      // Force le comportement cliquable en production
-      summary.style.cursor = 'pointer';
-      summary.style.userSelect = 'none';
-      
-      // Gestion manuelle du toggle
-      summary.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        if (mainDropdown.hasAttribute('open')) {
-          mainDropdown.removeAttribute('open');
-        } else {
-          mainDropdown.setAttribute('open', '');
-        }
-      }, true);
-      
-      // Ferme quand on clique ailleurs
-      document.addEventListener('click', function(e) {
-        const target = e.target;
-        if (!mainDropdown.contains(target) && mainDropdown.hasAttribute('open')) {
-          mainDropdown.removeAttribute('open');
-        }
-      });
-    }
-    
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initDropdown);
-    } else {
-      initDropdown();
-    }
-  })();
 </script>
 
 <style>
@@ -327,16 +290,24 @@
     pointer-events: auto;
   }
 
-  .dropdown-menu > details[open] {
+  /* Styles pour le dropdown desktop avec DaisyUI */
+  .dropdown-menu {
     position: relative;
-    background-color: transparent;
-    border-radius: 0.5rem;
   }
 
-  .dropdown-menu > details[open]::before {
+  .dropdown-menu > div[role="button"] {
+    position: relative;
+  }
+
+  /* Animation de la flèche */
+  .dropdown-menu:focus-within .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-menu:focus-within > div[role="button"]::before {
     content: "";
     position: absolute;
-    inset: -1px;
+    inset: -2px;
     border-radius: 0.5rem;
     background: linear-gradient(
       90deg,
@@ -345,38 +316,22 @@
       rgba(255, 203, 112, 1) 100%
     );
     z-index: -1;
-    pointer-events: none;
   }
 
-  .dropdown-menu > details[open]::after {
+  .dropdown-menu:focus-within > div[role="button"]::after {
     content: "";
     position: absolute;
-    inset: 1px;
+    inset: 0;
     border-radius: 0.4rem;
     background-color: #20201f;
     z-index: -1;
-    pointer-events: none;
   }
 
-  .dropdown-menu > details[open] > summary {
-    background-color: transparent;
-    position: relative;
-    z-index: 1;
+  .dropdown-menu .dropdown-content {
+    background-color: #121212 !important;
   }
 
-  .dropdown-menu > details[open] > ul {
-    background-color: #121212;
-    margin-top: 0.5rem;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-  }
-
-  .dropdown-menu > details[open] > summary:hover {
-    /* Pas d'effet hover sur le summary principal quand le menu est ouvert */
-  }
-
-  .dropdown-menu details[open] ul li a:hover,
-  .dropdown-menu details:not([open]) summary:hover {
+  .dropdown-menu ul li a:hover {
     background: linear-gradient(
       90deg,
       rgba(65, 88, 208, 1) 0%,
