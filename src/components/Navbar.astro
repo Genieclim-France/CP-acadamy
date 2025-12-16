@@ -179,35 +179,35 @@
     mobileLogo.style.display = "none";
   }
 
-  // Fix pour le dropdown en production - s'assurer que les clics fonctionnent
+  // Fix pour le dropdown en production - gestion manuelle du toggle
   document.addEventListener('DOMContentLoaded', () => {
-    const dropdownDetails = document.querySelectorAll('.dropdown-menu details');
+    const mainDropdown = document.querySelector('.dropdown-menu > details');
     
-    dropdownDetails.forEach((details) => {
-      const summary = details.querySelector('summary');
+    if (mainDropdown) {
+      const summary = mainDropdown.querySelector('summary');
+      
       if (summary) {
-        // Force le comportement natif même en production
+        // Empêche le comportement par défaut et gère manuellement
         summary.addEventListener('click', (e) => {
-          // Laisse le comportement natif se produire
-          setTimeout(() => {
-            // S'assure que le menu est bien positionné
-            const ul = details.querySelector('ul');
-            if (ul && details.hasAttribute('open')) {
-              ul.style.display = 'block';
-            }
-          }, 0);
+          e.preventDefault();
+          e.stopPropagation();
+          
+          // Toggle manuel de l'attribut open
+          if (mainDropdown.hasAttribute('open')) {
+            mainDropdown.removeAttribute('open');
+          } else {
+            mainDropdown.setAttribute('open', '');
+          }
         });
       }
-    });
-
-    // Ferme le dropdown quand on clique ailleurs
-    document.addEventListener('click', (e) => {
-      dropdownDetails.forEach((details) => {
-        if (!details.contains(e.target as Node) && details.hasAttribute('open')) {
-          details.removeAttribute('open');
+      
+      // Ferme le dropdown quand on clique ailleurs
+      document.addEventListener('click', (e) => {
+        if (!mainDropdown.contains(e.target as Node) && mainDropdown.hasAttribute('open')) {
+          mainDropdown.removeAttribute('open');
         }
       });
-    });
+    }
   });
 </script>
 
@@ -317,35 +317,26 @@
     pointer-events: auto;
   }
 
-  .dropdown-menu > details[open] {
+  .dropdown-menu > details {
     position: relative;
-    background-color: transparent;
     border-radius: 0.5rem;
+    padding: 2px;
+    border: 2px solid transparent;
   }
 
-  .dropdown-menu > details[open]::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    border-radius: 0.5rem;
-    background: linear-gradient(
-      90deg,
-      rgba(65, 88, 208, 1) 0%,
-      rgba(199, 81, 192, 1) 50%,
-      rgba(255, 203, 112, 1) 100%
-    );
-    z-index: -1;
-    pointer-events: none;
-  }
-
-  .dropdown-menu > details[open]::after {
-    content: "";
-    position: absolute;
-    inset: 1px;
-    border-radius: 0.4rem;
-    background-color: #20201f;
-    z-index: -1;
-    pointer-events: none;
+  .dropdown-menu > details[open] {
+    background: #20201f;
+    background-clip: padding-box;
+    background-image: 
+      linear-gradient(#20201f, #20201f),
+      linear-gradient(
+        90deg,
+        rgba(65, 88, 208, 1) 0%,
+        rgba(199, 81, 192, 1) 50%,
+        rgba(255, 203, 112, 1) 100%
+      );
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
   }
 
   .dropdown-menu > details[open] summary {
