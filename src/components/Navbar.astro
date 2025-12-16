@@ -178,6 +178,37 @@
   if (isHomePage && mobileLogo) {
     mobileLogo.style.display = "none";
   }
+
+  // Fix pour le dropdown en production - s'assurer que les clics fonctionnent
+  document.addEventListener('DOMContentLoaded', () => {
+    const dropdownDetails = document.querySelectorAll('.dropdown-menu details');
+    
+    dropdownDetails.forEach((details) => {
+      const summary = details.querySelector('summary');
+      if (summary) {
+        // Force le comportement natif même en production
+        summary.addEventListener('click', (e) => {
+          // Laisse le comportement natif se produire
+          setTimeout(() => {
+            // S'assure que le menu est bien positionné
+            const ul = details.querySelector('ul');
+            if (ul && details.hasAttribute('open')) {
+              ul.style.display = 'block';
+            }
+          }, 0);
+        });
+      }
+    });
+
+    // Ferme le dropdown quand on clique ailleurs
+    document.addEventListener('click', (e) => {
+      dropdownDetails.forEach((details) => {
+        if (!details.contains(e.target as Node) && details.hasAttribute('open')) {
+          details.removeAttribute('open');
+        }
+      });
+    });
+  });
 </script>
 
 <style>
@@ -290,7 +321,6 @@
     position: relative;
     background-color: transparent;
     border-radius: 0.5rem;
-    isolation: isolate;
   }
 
   .dropdown-menu details[open]::before {
@@ -320,8 +350,6 @@
 
   .dropdown-menu details[open] summary {
     background-color: transparent;
-    position: relative;
-    z-index: 1;
   }
 
   .dropdown-menu details[open] ul {
@@ -329,8 +357,6 @@
     margin-top: 0.5rem;
     border-radius: 0.5rem;
     padding: 0.5rem;
-    position: relative;
-    z-index: 1;
   }
 
   .dropdown-menu details[open] summary:hover,
