@@ -179,36 +179,46 @@
     mobileLogo.style.display = "none";
   }
 
-  // Fix pour le dropdown en production - gestion manuelle du toggle
-  document.addEventListener('DOMContentLoaded', () => {
-    const mainDropdown = document.querySelector('.dropdown-menu > details');
-    
-    if (mainDropdown) {
+  // Fix pour le dropdown en production
+  (function() {
+    function initDropdown() {
+      const mainDropdown = document.querySelector('.dropdown-menu > details');
+      if (!mainDropdown) return;
+      
       const summary = mainDropdown.querySelector('summary');
+      if (!summary) return;
       
-      if (summary) {
-        // Empêche le comportement par défaut et gère manuellement
-        summary.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          
-          // Toggle manuel de l'attribut open
-          if (mainDropdown.hasAttribute('open')) {
-            mainDropdown.removeAttribute('open');
-          } else {
-            mainDropdown.setAttribute('open', '');
-          }
-        });
-      }
+      // Force le comportement cliquable en production
+      summary.style.cursor = 'pointer';
+      summary.style.userSelect = 'none';
       
-      // Ferme le dropdown quand on clique ailleurs
-      document.addEventListener('click', (e) => {
-        if (!mainDropdown.contains(e.target as Node) && mainDropdown.hasAttribute('open')) {
+      // Gestion manuelle du toggle
+      summary.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        if (mainDropdown.hasAttribute('open')) {
+          mainDropdown.removeAttribute('open');
+        } else {
+          mainDropdown.setAttribute('open', '');
+        }
+      }, true);
+      
+      // Ferme quand on clique ailleurs
+      document.addEventListener('click', function(e) {
+        const target = e.target;
+        if (!mainDropdown.contains(target) && mainDropdown.hasAttribute('open')) {
           mainDropdown.removeAttribute('open');
         }
       });
     }
-  });
+    
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initDropdown);
+    } else {
+      initDropdown();
+    }
+  })();
 </script>
 
 <style>
@@ -317,30 +327,41 @@
     pointer-events: auto;
   }
 
-  .dropdown-menu > details {
-    position: relative;
-    border-radius: 0.5rem;
-    padding: 2px;
-    border: 2px solid transparent;
-  }
-
   .dropdown-menu > details[open] {
-    background: #20201f;
-    background-clip: padding-box;
-    background-image: 
-      linear-gradient(#20201f, #20201f),
-      linear-gradient(
-        90deg,
-        rgba(65, 88, 208, 1) 0%,
-        rgba(199, 81, 192, 1) 50%,
-        rgba(255, 203, 112, 1) 100%
-      );
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
+    position: relative;
+    background-color: transparent;
+    border-radius: 0.5rem;
   }
 
-  .dropdown-menu > details[open] summary {
+  .dropdown-menu > details[open]::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: 0.5rem;
+    background: linear-gradient(
+      90deg,
+      rgba(65, 88, 208, 1) 0%,
+      rgba(199, 81, 192, 1) 50%,
+      rgba(255, 203, 112, 1) 100%
+    );
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .dropdown-menu > details[open]::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: 0.4rem;
+    background-color: #20201f;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .dropdown-menu > details[open] > summary {
     background-color: transparent;
+    position: relative;
+    z-index: 1;
   }
 
   .dropdown-menu > details[open] > ul {
