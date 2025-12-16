@@ -317,13 +317,13 @@
     pointer-events: auto;
   }
 
-  .dropdown-menu details[open] {
+  .dropdown-menu > details[open] {
     position: relative;
     background-color: transparent;
     border-radius: 0.5rem;
   }
 
-  .dropdown-menu details[open]::before {
+  .dropdown-menu > details[open]::before {
     content: "";
     position: absolute;
     inset: -1px;
@@ -335,32 +335,36 @@
       rgba(255, 203, 112, 1) 100%
     );
     z-index: -1;
-    pointer-events: none !important;
+    pointer-events: none;
   }
 
-  .dropdown-menu details[open]::after {
+  .dropdown-menu > details[open]::after {
     content: "";
     position: absolute;
     inset: 1px;
     border-radius: 0.4rem;
     background-color: #20201f;
     z-index: -1;
-    pointer-events: none !important;
+    pointer-events: none;
   }
 
-  .dropdown-menu details[open] summary {
+  .dropdown-menu > details[open] summary {
     background-color: transparent;
   }
 
-  .dropdown-menu details[open] ul {
+  .dropdown-menu > details[open] > ul {
     background-color: #121212;
     margin-top: 0.5rem;
     border-radius: 0.5rem;
     padding: 0.5rem;
   }
 
-  .dropdown-menu details[open] summary:hover,
-  .dropdown-menu details[open] ul li a:hover {
+  .dropdown-menu > details[open] > summary:hover {
+    /* Pas d'effet hover sur le summary principal quand le menu est ouvert */
+  }
+
+  .dropdown-menu details[open] ul li a:hover,
+  .dropdown-menu details:not([open]) summary:hover {
     background: linear-gradient(
       90deg,
       rgba(65, 88, 208, 1) 0%,
@@ -370,28 +374,6 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    background-color: transparent;
-  }
-
-  .dropdown-menu details[open] ul li a:hover {
-    background-color: transparent;
-  }
-
-  .dropdown-menu summary:hover,
-  .dropdown-menu ul li a:hover {
-    background: linear-gradient(
-      90deg,
-      rgba(65, 88, 208, 1) 0%,
-      rgba(199, 81, 192, 1) 50%,
-      rgba(255, 203, 112, 1) 100%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    background-color: transparent;
-  }
-
-  .dropdown-menu ul li a:hover {
     background-color: transparent;
   }
 
