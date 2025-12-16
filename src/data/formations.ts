@@ -235,9 +235,9 @@ export const formations: Formations = {
       "Perfectionnez l'art de la prothésie ongulaire grâce à notre formation spécialisée. Développez votre expertise en techniques modernes pour créer des ongles esthétiques, résistants et personnalisés qui raviront votre clientèle.",
   },
   "relation-client": {
-    surTitle: "Préparation au bloc RNCP36331BC03",
+    surTitle: "",
     subTitle: "",
-    title: "Relation et expérience client",
+    title: "Relation et expérience client en esthétique",
     description: [
       "Cette formation intensive sur deux jours permet de développer les compétences clés en relation et expérience client dans les métiers de l'esthétique, de la cosmétique et de la parfumerie.",
     ],
